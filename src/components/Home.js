@@ -9,17 +9,17 @@ export const Home = () => {
     return (
         <div>
             <Header />
-            <div class="container">
-                <div class="row">
-                    <div class="col">
+            
+                <div class="row ">
+                    <div class="col form">
                         <Form />
                     </div>
-                    <div class="col">
+                    <div class="col premiere">
                         <Premiere />
                     </div>
                    
                 </div>
-            </div>
+         
             <Footer />
         </div>
     )
