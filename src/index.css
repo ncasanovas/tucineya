@@ -50,8 +50,7 @@ button#btn-abrir-popup.btn {
 }
 
 .footer {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
+
     background-color: #bf80ff;
     left: 0;
     bottom: 0;
@@ -62,23 +61,10 @@ button#btn-abrir-popup.btn {
     position: fixed;
     margin-bottom: 0px;
     right: 0px;
-=======
-=======
->>>>>>> main
-  background-color: #bf80ff;
-  padding: 5px;
-  font-family: "Dosis", sans-serif;
-  overflow: auto;
-  height: auto;
-  right: 0px;
-  bottom: auto;
-<<<<<<< HEAD
-  position: fixed;
-  left: 0;
-  bottom: 0;
->>>>>>> Stashed changes
-=======
->>>>>>> main
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
 }
 
 .footer > .row > .col-sm {
