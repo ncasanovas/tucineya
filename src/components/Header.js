@@ -2,21 +2,26 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div>
-        <div id="header" class="row">
-          <div class="col-sm">
-            <img class="icons-home" src="./3d-glasses.png" alt=""/>
-          </div>
-          <div class="col-sm">
-            <h1 id="tucineya">TU CINE YA</h1>
-          </div>
-          <div class="col-sm">
-            <img class="icons-home" src="./clapperboard.png" alt=""/>
-
-          </div>
-        </div>
-      
-
+    <div id="header" className="row">
+      <div className="col-3">
+        <img
+          className="icons-home rounded float-start img-fluid"
+          src="./3d-glasses.png"
+          alt=""
+        />
+      </div>
+      <div className="col-6 ">
+        <h1 id="tucineya" className="fs-auto">
+          TU CINE YA
+        </h1>
+      </div>
+      <div className="col-3">
+        <img
+          className="icons-home rounded float-end img-fluid"
+          src="./clapperboard.png"
+          alt=""
+        />
+      </div>
     </div>
   );
 };

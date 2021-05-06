@@ -1,59 +1,79 @@
-import React,  { Fragment } from 'react';
+import React, { Fragment, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+import { Suscribirse } from "./Suscribirse";
 
 export const Form = () => {
-    window.onload = function () {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-            var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
-                overlay = document.getElementById('overlay'),
-                popup = document.getElementById('popup'),
-                btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+  const onChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-            btnAbrirPopup.addEventListener('click', function(){
-                overlay.classList.add('active');
-                popup.classList.add('active');
-            });
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    e.target.reset();
 
-            btnCerrarPopup.addEventListener('click', function(e){
-                e.preventDefault();
-                overlay.classList.remove('active');
-                popup.classList.remove('active');
-            });
-    }
+    const res = await axios.post(
+      "https://tucineya.herokuapp.com/api/login/",
+      user
+    );
 
-    return (   
-        <Fragment>
-            <form action="/action_page.php">
-                <label for="fname">Email:</label><br />
-                <input type="text" id="fname" name="fname" value="pedro@gmail.com"/><br />
-                <label for="lname">Contraseña:</label><br />
-                <input type="text" id="lname" name="lname"/><br /><br />
-                <input type="submit" value="Ingresar"/><br /><br />
-                <p>¿Todavía no te registraste?</p>
-                <input type="submit" value="Registrarme"/>
-            </form> 
+    alert(res.data.message);
 
-            <button id="btn-abrir-popup" class="btn-abrir-popup btn btn-primary">Subscribirse</button>
+    setUser({
+      email: "",
+      password: "",
+    });
+  };
 
-            <div class="contenedor">
-              
-
-                <div class="overlay" id="overlay">
-                    <div class="popup" id="popup">
-                        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                        <h3>SUSCRIBETE</h3>
-                       
-                        <h4>y recibe las novedades.</h4>
-                        <form action="">
-                            <div class="contenedor-inputs">
-                                <input type="text" placeholder="Nombre"/>
-                                <input type="email" placeholder="Correo"/>
-                            </div>
-                            <input type="submit" class="btn-submit" value="Suscribirse"/>
-                        </form>
-                    </div>
-                </div>
+  return (
+    <Fragment>
+      <div>
+        <div className="row justify-content-center">
+          <form onSubmit={onSubmit} className="py-3 row justify-content-center">
+            <div className="form-group row col-lg-6">
+              <label htmlFor="fname">Email:</label>
+              <input
+                type="email"
+                id="fname"
+                className="form-control"
+                name="email"
+                placeholder="Email"
+                onChange={onChange}
+              />
+              <label htmlFor="lname">Contraseña:</label>
+              <input
+                type="text"
+                id="lname"
+                className="form-control mb-3"
+                name="password"
+                placeholder="Contraseña"
+                onChange={onChange}
+              />
             </div>
-
-        </Fragment>
-    )
-}
+            <div className="btn-sm ">
+              <button type="submit" className="btn btn-primary mb-3">
+                Ingresar
+              </button>
+            </div>
+          </form>
+          <p>¿Todavía no te registraste?</p>
+          <div className="btn-sm">
+            <Link type="submit" className="btn btn-success" to="/registro">
+              Registrarse
+            </Link>
+          </div>
+          <Suscribirse />
+        </div>
+      </div>
+    </Fragment>
+  );
+};
