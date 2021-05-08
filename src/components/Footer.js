@@ -7,13 +7,13 @@ export const Footer = () => {
         <h3>TU CINE YA</h3>
       </div>
       <div className="col-3">
-        <img className="icon" src="../instagram.png" alt=""></img>
+        <img className="icon" src="./instagram.png" alt=""></img>
       </div>
       <div className="col-3">
-        <img className="icon" src="../facebook.png" alt=""></img>
+        <img className="icon" src="./facebook.png" alt=""></img>
       </div>
       <div className="col-3">
-        <img className="icon" src="../twitter.png" alt=""></img>
+        <img className="icon" src="./twitter.png" alt=""></img>
       </div>
     </div>
   );

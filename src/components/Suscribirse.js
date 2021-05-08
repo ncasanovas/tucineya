@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
-import { PopUp } from "./PopUp";
 
 export const Suscribirse = () => {
-  const [mostrarPopUp, setMostrarPopUp] = useState(false);
-
   window.onload = function () {
     const btnAbrirPopup = document.getElementById("btn-abrir-popup"),
       overlay = document.getElementById("overlay"),
@@ -21,10 +18,6 @@ export const Suscribirse = () => {
       overlay.classList.remove("active");
       popup.classList.remove("active");
     });
-  };
-
-  const popUp = () => {
-    setMostrarPopUp(!mostrarPopUp);
   };
 
   return (

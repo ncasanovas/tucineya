@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HashRouter, Link } from "react-router-dom";
 import axios from "axios";
 
 export const Registro = () => {
@@ -25,7 +26,15 @@ export const Registro = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     e.target.reset();
-    await axios.post("https://tucineya.herokuapp.com/api/register/", user);
+    await axios
+      .post("https://tucineya.herokuapp.com/api/register/", user)
+      .then((res) => {
+        alert(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setUser({
       nombre: "",
       apellido: "",
@@ -44,7 +53,14 @@ export const Registro = () => {
     <>
       <div className="mb-3 row">
         <div className="justify-content-center">
-          <p className="fs-1">FORMULARIO DE REGISTRO</p>
+          <div className="row">
+            <HashRouter>
+              <Link to="/" className="col-2 align-items-center">
+                Atras
+              </Link>
+            </HashRouter>
+            <p className="fs-1 col-8">FORMULARIO DE REGISTRO</p>
+          </div>
           <form onSubmit={onSubmit} className="px-4 py-3">
             <p>DATOS PERSONALES</p>
             <div className="form-group row">
