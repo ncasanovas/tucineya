@@ -2,7 +2,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="d-flex justify-content-between footer mt-auto p-2 bd-highlight">
+    <div className="d-flex justify-content-between footer mt-auto p-2 bd-highlight row">
       <div className="col-3">
         <h3>TU CINE YA</h3>
       </div>
