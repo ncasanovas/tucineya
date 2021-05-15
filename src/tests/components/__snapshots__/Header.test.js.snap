@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Header /> debe de mostrarse correctamente 1`] = `
+<div
+  className="row"
+  id="header"
+>
+  <div
+    className="col-3"
+  >
+    <img
+      alt=""
+      className="icons-home rounded float-start img-fluid"
+      src="3d-glasses.png"
+    />
+  </div>
+  <div
+    className="col-6 "
+  >
+    <h1
+      className="fs-auto"
+      id="tucineya"
+    >
+      TU CINE YA
+    </h1>
+  </div>
+  <div
+    className="col-3"
+  >
+    <img
+      alt=""
+      className="icons-home rounded float-end img-fluid"
+      src="clapperboard.png"
+    />
+  </div>
+</div>
+`;
