@@ -13,7 +13,7 @@ export const App = () => {
       <Router basename={window.location.pathname || ''}>
         <div>
           <Route path="/" exact component={Home} />
-         
+          <Route path="/registro" exact component={Registro} />
         </div>
       </Router>
       <Footer />
