@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
+<div
+  className="d-flex justify-content-between footer mt-auto p-2 bd-highlight"
+>
+  <div
+    className="col-3"
+  >
+    <h3>
+      TU CINE YA
+    </h3>
+  </div>
+  <div
+    className="col-3"
+  >
+    <img
+      alt=""
+      className="icon"
+      src="instagram.png"
+    />
+  </div>
+  <div
+    className="col-3"
+  >
+    <img
+      alt=""
+      className="icon"
+      src="facebook.png"
+    />
+  </div>
+  <div
+    className="col-3"
+  >
+    <img
+      alt=""
+      className="icon"
+      src="twitter.png"
+    />
+  </div>
+</div>
+`;
