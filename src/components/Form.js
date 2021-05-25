@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { HashRouter, Link } from "react-router-dom";
+import { HashRouter, Link, useHistory } from "react-router-dom";
 
 import { Suscribirse } from "./Suscribirse";
 
@@ -9,6 +9,8 @@ export const Form = () => {
     email: "",
     password: "",
   });
+
+  const history = useHistory();
 
   const onChange = (e) => {
     setUser({
@@ -21,17 +23,26 @@ export const Form = () => {
     e.preventDefault();
     e.target.reset();
 
-    const res = await axios.post(
-      "https://tucineya.herokuapp.com/api/login/",
-      user
-    );
+    await axios
+      .post("https://tucineya.herokuapp.com/api/login/", user)
+      //.post("http://localhost:4000/api/login", user)
+      .then((res) => {
+        setUser({
+          email: "",
+          password: "",
+        });
+        if (res.data.admin) {
+          history.replace("./admin");
+        } else {
+          alert(res.data.message);
+          //console.log(history);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
-    alert(res.data.message);
-
-    setUser({
-      email: "",
-      password: "",
-    });
+    //alert(res.data.message);
   };
 
   return (
@@ -48,6 +59,7 @@ export const Form = () => {
                 name="email"
                 placeholder="Email"
                 onChange={onChange}
+                required
               />
               <label htmlFor="lname">Contraseña:</label>
               <input
@@ -57,6 +69,7 @@ export const Form = () => {
                 name="password"
                 placeholder="Contraseña"
                 onChange={onChange}
+                required
               />
             </div>
             <div className="btn-sm ">

@@ -2,7 +2,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <div id="header" className="row">
+    <div id="header" className="row container-fluid">
       <div className="col-3">
         <img
           className="icons-home rounded float-start img-fluid"
