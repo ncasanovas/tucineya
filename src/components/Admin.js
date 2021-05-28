@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { HashRouter, Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import { AdminModal } from "./AdminModal";
 import { AdminMovies } from "./AdminMovies";
 import { MoviesContext } from "./MoviesContext";

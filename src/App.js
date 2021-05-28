@@ -6,7 +6,6 @@ import {
   Switch,
 } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.css";
 import { Home } from "./components/Home";
 import { Registro } from "./components/Registro";
 import { Header } from "./components/Header";
