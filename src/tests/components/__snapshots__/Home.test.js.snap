@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Home /> debe de mostrarse correctamente 1`] = `
+<div>
+  <div
+    className="row "
+  >
+    <div
+      className="col"
+    >
+      <Form />
+    </div>
+    <div
+      className="col premiere"
+    >
+      <Premiere />
+      <div
+        className="mb-3"
+      >
+        <button
+          className="btn btn-primary "
+          type="button"
+        >
+          Ver Catálogo de Películas
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

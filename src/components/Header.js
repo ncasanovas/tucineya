@@ -6,7 +6,7 @@ export const Header = () => {
       <div className="col-3">
         <img
           className="icons-home rounded float-start img-fluid"
-          src="./3d-glasses.png"
+          src="3d-glasses.png"
           alt=""
         />
       </div>
@@ -18,7 +18,7 @@ export const Header = () => {
       <div className="col-3">
         <img
           className="icons-home rounded float-end img-fluid"
-          src="./clapperboard.png"
+          src="clapperboard.png"
           alt=""
         />
       </div>

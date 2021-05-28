@@ -1,10 +1,18 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import {
   BrowserRouter,
   HashRouter as Router,
   Route,
   Switch,
 } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 import "bootstrap/dist/css/bootstrap.css";
 import { Home } from "./components/Home";
@@ -16,7 +24,12 @@ import { Admin } from "./components/Admin";
 export const App = () => {
   return (
     <BrowserRouter>
+<<<<<<< HEAD
       <div>
+=======
+      <Header />
+      <Router basename={window.location.pathname || ''}>
+>>>>>>> main
         <div>
           <Header />
         </div>
