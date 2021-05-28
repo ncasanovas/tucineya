@@ -24,8 +24,8 @@ export const Form = () => {
     e.target.reset();
 
     await axios
-      .post("https://tucineya.herokuapp.com/api/login/", user)
-      //.post("http://localhost:4000/api/login", user)
+      //.post("https://tucineya.herokuapp.com/api/login/", user)
+      .post("http://localhost:4000/api/login", user)
       .then((res) => {
         setUser({
           email: "",
