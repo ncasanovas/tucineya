@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { HashRouter, Link } from "react-router-dom";
 
 import { Suscribirse } from "./Suscribirse";
 
@@ -35,7 +35,7 @@ export const Form = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <div>
         <div className="row justify-content-center">
           <form onSubmit={onSubmit} className="py-3 row justify-content-center">
@@ -67,13 +67,15 @@ export const Form = () => {
           </form>
           <p>¿Todavía no te registraste?</p>
           <div className="btn-sm">
-            <Link type="submit" className="btn btn-success" to="/registro">
-              Registrarse
-            </Link>
+            <HashRouter>
+              <Link to="/registro" className="btn btn-success">
+                Registrarse
+              </Link>
+            </HashRouter>
           </div>
           <Suscribirse />
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
