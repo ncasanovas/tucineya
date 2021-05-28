@@ -23,18 +23,76 @@ export const Registro = () => {
     });
   };
 
+  const validar = (user) => {
+    const errors = {};
+
+    if (user.nombre.length > 15) {
+      errors.nombre = "Debe contener 15 letras o menos";
+    }
+
+    if (user.apellido.length > 20) {
+      errors.apellido = "Debe contener 20 letras o menos";
+    }
+
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(user.email)) {
+      errors.email = "Email invalido";
+    }
+
+    if (user.username.length > 10) {
+      errors.username = "Debe contener 10 letras o menos";
+    }
+
+    if (!user.password) {
+      errors.password = "Requerido";
+    }
+
+    if (!user.repassword) {
+      errors.repassword = "Requerido";
+    } else if (user.repassword !== user.password) {
+      errors.repassword = "Las contraseñas deben coincidir";
+    }
+
+    if (
+      parseInt(!user.celular.match(/^[0-9]{8,12}$/i)) ||
+      parseInt(user.celular.match(/^[0-9]{12}$/i))
+    ) {
+      errors.celular = "Celular invalido";
+    }
+
+    if (!user.direccion) {
+      errors.direccion = "Requerido";
+    }
+
+    if (!/^[0-9]{8,12}$/i) {
+      errors.piso = "El piso debe ser numerico";
+    }
+
+    if (!/^[A-Z0-9._%+-]{1,2}/) {
+      errors.dpto = "Departamento invalido";
+    }
+
+    return errors;
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     e.target.reset();
-    await axios
-      .post("https://tucineya.herokuapp.com/api/register/", user)
-      .then((res) => {
-        alert(res.data);
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    if (Object.keys(validar(user)).length === 0) {
+      await axios
+        .post("https://tucineya.herokuapp.com/api/register/", user)
+        //.post("http://localhost:4000/api/register/", user)
+        .then((res) => {
+          alert(res.data.message);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert(JSON.stringify(validar(user)));
+    }
+
     setUser({
       nombre: "",
       apellido: "",
@@ -67,19 +125,21 @@ export const Registro = () => {
               <div className="col">
                 <input
                   type="text"
-                  id="name"
+                  id="nombre"
                   className="form-control mb-3"
                   name="nombre"
                   placeholder="Nombre"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="text"
-                  id="surname"
+                  id="apellido"
                   className="form-control mb-3"
                   name="apellido"
                   placeholder="Apellido"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="email"
@@ -88,6 +148,7 @@ export const Registro = () => {
                   name="email"
                   placeholder="Mail"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="text"
@@ -96,6 +157,7 @@ export const Registro = () => {
                   name="username"
                   placeholder="Nombre de usuario"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="text"
@@ -104,14 +166,16 @@ export const Registro = () => {
                   name="password"
                   placeholder="Contraseña"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="text"
                   id="lname"
                   className="form-control mb-3"
-                  name="rePassword"
+                  name="repassword"
                   placeholder="Confirma Contraseña"
                   onChange={onChange}
+                  required
                 />
               </div>
               <div className="col">
@@ -122,6 +186,7 @@ export const Registro = () => {
                   name="celular"
                   placeholder="Celular"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="text"
@@ -130,6 +195,7 @@ export const Registro = () => {
                   name="direccion"
                   placeholder="Dirección"
                   onChange={onChange}
+                  required
                 />
                 <input
                   type="number"

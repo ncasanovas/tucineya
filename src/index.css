@@ -245,3 +245,13 @@ button#btn-abrir-popup.btn {
     opacity: 1;
   }
 }
+
+#imgPelicula {
+  margin-left: 25px;
+  width: 150px;
+  height: 200px;
+}
+
+#cardText {
+  font-size: 20px;
+}
