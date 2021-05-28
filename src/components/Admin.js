@@ -1,23 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { HashRouter, Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AdminModal } from "./AdminModal";
+import { AdminMovies } from "./AdminMovies";
+import { MoviesContext } from "./MoviesContext";
 
 export const Admin = () => {
   const [users, setUsers] = useState();
   const [deleteUsers, setDeleteUsers] = useState([]);
 
+  const { setMoviesContext } = useContext(MoviesContext);
+
   useEffect(() => {
     const data = async () => {
       await axios
-        .get("https://tucineya.herokuapp.com/api/users/")
+        //.get("https://tucineya.herokuapp.com/api/users/")
+        .get("http://localhost:4000/api/users/")
         .then((res) => {
           setUsers(res.data[0]);
         });
     };
+    const datamovies = async () => {
+      await axios
+        //.get("https://tucineya.herokuapp.com/api/users/")
+        .get("http://localhost:4000/api/movies/")
+        .then((res) => {
+          setMoviesContext(res.data[0]);
+        });
+    };
     data();
+    datamovies();
   }, []);
 
   const onChangeCheck = (e) => {
@@ -34,10 +48,10 @@ export const Admin = () => {
   };
 
   return (
-    <div className="p-3 container-fluid row mb-auto">
+    <div id="admin" className="p-3 container-fluid row">
       <div className="d-flex justify-content-end">
         <HashRouter>
-          <Link to="/" className="col-2 align-items-center">
+          <Link to="/" className="col-2">
             Atras
           </Link>
         </HashRouter>
@@ -80,7 +94,8 @@ export const Admin = () => {
         </div>
       </div>
       <div className="col">
-        <h4>Peliculas</h4>
+        <h4 className="mb-5">Peliculas</h4>
+        <AdminMovies />
       </div>
     </div>
   );

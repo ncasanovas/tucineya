@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   HashRouter as Router,
@@ -13,7 +13,10 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Admin } from "./components/Admin";
 
+import { MoviesContext } from "./components/MoviesContext";
+
 export const App = () => {
+  const [moviesContext, setMoviesContext] = useState();
   return (
     <BrowserRouter>
       <div>
@@ -21,11 +24,13 @@ export const App = () => {
           <Header />
         </div>
         <Router>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/registro" exact component={Registro} />
-            <Route path="/admin" exact component={Admin} />
-          </Switch>
+          <MoviesContext.Provider value={{ moviesContext, setMoviesContext }}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/registro" exact component={Registro} />
+              <Route path="/admin" exact component={Admin} />
+            </Switch>
+          </MoviesContext.Provider>
         </Router>
         <div>
           <Footer />
