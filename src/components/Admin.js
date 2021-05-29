@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { HashRouter, Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { AdminModal } from "./AdminModal";
 import { AdminMovies } from "./AdminMovies";
 import { MoviesContext } from "./MoviesContext";
@@ -16,16 +16,16 @@ export const Admin = () => {
   useEffect(() => {
     const data = async () => {
       await axios
-        //.get("https://tucineya.herokuapp.com/api/users/")
-        .get("http://localhost:4000/api/users/")
+        .get("https://tucineya.herokuapp.com/api/users/")
+        //.get("http://localhost:4000/api/users/")
         .then((res) => {
           setUsers(res.data[0]);
         });
     };
     const datamovies = async () => {
       await axios
-        //.get("https://tucineya.herokuapp.com/api/users/")
-        .get("http://localhost:4000/api/movies/")
+        .get("https://tucineya.herokuapp.com/api/movies/")
+        //.get("http://localhost:4000/api/movies/")
         .then((res) => {
           setMoviesContext(res.data[0]);
         });
