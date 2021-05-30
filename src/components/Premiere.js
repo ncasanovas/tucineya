@@ -4,7 +4,7 @@ import { PremiereItem } from './PremiereItem';
 
 export const Premiere = (estrenos) => {
 
-  const {data:movies, loading} = useFetchPremieres(estrenos);
+  const {data:movies} = useFetchPremieres(estrenos);
   
   return (
     <div id="premiere" className="mb-3">
