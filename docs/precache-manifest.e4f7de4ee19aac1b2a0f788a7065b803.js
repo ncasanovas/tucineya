@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "4ffd0372718786f2c0d0",
+    "revision": "b29444d075baa5223ec3",
     "url": "/tucineya/static/css/main.f82fc289.chunk.css"
   },
   {
-    "revision": "4ffd0372718786f2c0d0",
-    "url": "/tucineya/static/js/main.7f4eec13.chunk.js"
+    "revision": "b29444d075baa5223ec3",
+    "url": "/tucineya/static/js/main.c9403ffe.chunk.js"
   },
   {
     "revision": "65ae8120df68669f4246",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/tucineya/static/js/3.136b86f2.chunk.js"
   },
   {
-    "revision": "39bd6d82cb63aac183e2f7112828d192",
+    "revision": "1909f6bccf84e6fe537f5a6f0ea32f47",
     "url": "/tucineya/index.html"
   }
 ];
