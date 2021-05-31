@@ -46,7 +46,7 @@ export const Form = () => {
   };
 
   return (
-    <>
+   
       <div>
         <div className="row justify-content-center">
           <form onSubmit={onSubmit} className="py-3 row justify-content-center">
@@ -89,6 +89,6 @@ export const Form = () => {
           <Suscribirse />
         </div>
       </div>
-    </>
+ 
   );
 };
