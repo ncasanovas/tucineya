@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Form /> debe de mostrarse correctamente 1`] = `
+<Fragment>
+  <div>
+    <div
+      className="row justify-content-center"
+    >
+      <form
+        className="py-3 row justify-content-center"
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group row col-lg-6"
+        >
+          <label
+            htmlFor="fname"
+          >
+            Email:
+          </label>
+          <input
+            className="form-control"
+            id="fname"
+            name="email"
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+          />
+          <label
+            htmlFor="lname"
+          >
+            Contraseña:
+          </label>
+          <input
+            className="form-control mb-3"
+            id="lname"
+            name="password"
+            onChange={[Function]}
+            placeholder="Contraseña"
+            type="text"
+          />
+        </div>
+        <div
+          className="btn-sm "
+        >
+          <button
+            className="btn btn-primary mb-3"
+            type="submit"
+          >
+            Ingresar
+          </button>
+        </div>
+      </form>
+      <p>
+        ¿Todavía no te registraste?
+      </p>
+      <div
+        className="btn-sm"
+      >
+        <Link
+          className="btn btn-success"
+          to="/registro"
+          type="submit"
+        >
+          Registrarse
+        </Link>
+      </div>
+      <Suscribirse />
+    </div>
+  </div>
+</Fragment>
+`;
