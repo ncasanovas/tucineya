@@ -7,22 +7,14 @@ export const getPremieres = async() => {
 
      const data = await resp.json(); 
      
-    
-
      const premieres = data.results.map ( results => {
          
           return {
              id: results.id,
              title: results.title,
-             url: results.poster_path,
-           
-             
-             
-          }
-          
+             url: results.poster_path,         
+          }          
      });
-
-  
- 
+   
      return premieres;
 }

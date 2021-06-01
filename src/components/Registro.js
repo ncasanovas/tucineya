@@ -20,7 +20,9 @@ export const Registro = () => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
+      
     });
+    console.log(user.nombre);
   };
 
   const validar = (user) => {
@@ -28,6 +30,10 @@ export const Registro = () => {
 
     if (user.nombre.length > 15) {
       errors.nombre = "Debe contener 15 letras o menos";
+    }
+    
+    if(!/[A-Za-z]/.test(user.nombre)) {
+      errors.nombre = "No debe contener caracteres especiales ni números";
     }
 
     if (user.apellido.length > 20) {
