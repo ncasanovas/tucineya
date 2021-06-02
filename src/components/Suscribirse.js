@@ -20,6 +20,19 @@ export const Suscribirse = () => {
     });
   };
 
+
+  function sendEmail(e) {
+    e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+      .then((result) => {
+          window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+
+
   return (
     <div>
       <button className="btn btn-primary" id="btn-abrir-popup">
@@ -33,12 +46,12 @@ export const Suscribirse = () => {
             </a>
             <h3>SUSCRIBETE</h3>
             <h4>y recibe las novedades.</h4>
-            <form action="">
+            <form onSubmit={sendEmail}>
               <div className="contenedor-inputs">
                 <input type="text" placeholder="Nombre" />
                 <input type="email" placeholder="Correo" />
               </div>
-              <input type="submit" className="btn-submit" value="Suscribirse" />
+              <input type="submit" className="btn-submit" value="Suscribirse"/>
             </form>
           </div>
         </div>
