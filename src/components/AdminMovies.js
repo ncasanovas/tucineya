@@ -2,31 +2,60 @@ import React, { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import { AddMovie } from "./AddMovie";
 import { MoviesContext } from "./MoviesContext";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 export const AdminMovies = () => {
   const { moviesContext } = useContext(MoviesContext);
 
+  const history = useHistory();
+  const onClickDeleteMovie = async (nombrePelicula) => {
+    await axios
+      .delete(`http://localhost:4000/api/movies/${nombrePelicula}`)
+      .then(() => {
+        history.go(0);
+      });
+  };
+
   return (
-    <div className="p-0 m-0">
+    <div>
       <div>
         {moviesContext ? (
-          <div className="overflow-auto d-flex">
+          <div className="overflow-auto" style={{ height: "350px" }}>
             {moviesContext.map((movie, i) => {
               return (
-                <div className="col-4 overflow-auto d-flex" key={i}>
+                <div className="col" key={i}>
                   <Card>
                     <Card.Img
                       className="img-fluid"
                       id="imgPelicula"
                       variant="top"
-                      src={`https://${movie.posterPelicula}`}
+                      src={movie.posterPelicula}
                     />
-                    <Card.Body>
-                      <Card.Title id="cardText">
-                        {movie.nombrePelicula}
-                      </Card.Title>
-                      <Card.Text>{movie.sinopsis}</Card.Text>
-                    </Card.Body>
+                    <div>
+                      <div className="d-flex justify-content-center">
+                        <Card.Body>
+                          <Card.Title id="cardText">
+                            {movie.nombrePelicula}
+                          </Card.Title>
+                          <Card.Text style={{ fontSize: "16px" }}>
+                            {movie.sinopsis === ""
+                              ? "Sinopsis no disponible"
+                              : movie.sinopsis}
+                          </Card.Text>
+                        </Card.Body>
+                      </div>
+                      <div>
+                        <Button
+                          className="btn btn-danger"
+                          onClick={() =>
+                            onClickDeleteMovie(movie.nombrePelicula)
+                          }
+                        >
+                          Eliminar
+                        </Button>
+                      </div>
+                    </div>
                   </Card>
                 </div>
               );
@@ -43,10 +72,7 @@ export const AdminMovies = () => {
           </div>
         )}
       </div>
-      {moviesContext ? (
-        <AddMovie />
-      ) : //<Button variant="primary">Agregar Pelicula</Button>
-      null}
+      {moviesContext ? <AddMovie /> : null}
     </div>
   );
 };

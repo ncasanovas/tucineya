@@ -15,16 +15,16 @@ export const Admin = () => {
   useEffect(() => {
     const data = async () => {
       await axios
-        .get("https://tucineya.herokuapp.com/api/users/")
-        //.get("http://localhost:4000/api/users/")
+        //.get("https://tucineya.herokuapp.com/api/users/")
+        .get("http://localhost:4000/api/users/")
         .then((res) => {
           setUsers(res.data[0]);
         });
     };
     const datamovies = async () => {
       await axios
-        .get("https://tucineya.herokuapp.com/api/movies/")
-        //.get("http://localhost:4000/api/movies/")
+        //.get("https://tucineya.herokuapp.com/api/movies/")
+        .get("http://localhost:4000/api/movies/")
         .then((res) => {
           setMoviesContext(res.data[0]);
         });
@@ -47,7 +47,7 @@ export const Admin = () => {
   };
 
   return (
-    <div id="admin" className="p-3 container-fluid row">
+    <div id="admin" className="container-fluid row">
       <div className="d-flex justify-content-end">
         <HashRouter>
           <Link to="/" className="col-2">
@@ -55,11 +55,11 @@ export const Admin = () => {
           </Link>
         </HashRouter>
       </div>
-      <div className="col">
-        <h4 className="mb-5">Lista de usuarios</h4>
-        <div className="form-check">
+      <div className="col-3 col-sm-4 col-md-3 col-lg-3">
+        <h4 className="mb-4">Lista de usuarios</h4>
+        <div className="row">
           {users ? (
-            <ul className="border list-group text-start">
+            <ul className="list-group text-start col">
               {users.map((user, i) => {
                 return (
                   <li className="list-group-item" key={i}>
@@ -92,8 +92,8 @@ export const Admin = () => {
           ) : null}
         </div>
       </div>
-      <div className="col">
-        <h4 className="mb-5">Peliculas</h4>
+      <div className="col-sm-12 col-md-9 col-lg-9">
+        <h4 className="mb-4">Peliculas</h4>
         <AdminMovies />
       </div>
     </div>
