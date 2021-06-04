@@ -2,7 +2,7 @@
 
 exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
 <div
-  className="d-flex justify-content-between footer mt-auto p-2 bd-highlight"
+  className="d-flex justify-content-between footer mt-auto p-2 bd-highlight row"
 >
   <div
     className="col-3"
