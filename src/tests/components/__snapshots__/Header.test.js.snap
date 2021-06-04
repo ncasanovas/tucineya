@@ -2,7 +2,7 @@
 
 exports[`Pruebas en <Header /> debe de mostrarse correctamente 1`] = `
 <div
-  className="row"
+  className="row container-fluid"
   id="header"
 >
   <div
