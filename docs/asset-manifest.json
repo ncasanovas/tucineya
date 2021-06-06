@@ -1,5 +1,5 @@
 {
-  "main.css": "/tucineya/static/css/main.7ac0ce91.chunk.css",
+  "main.css": "/tucineya/static/css/main.071ebd2c.chunk.css",
   "main.js": "/tucineya/static/js/main.5f721764.chunk.js",
   "main.js.map": "/tucineya/static/js/main.5f721764.chunk.js.map",
   "runtime~main.js": "/tucineya/static/js/runtime~main.3e63f42e.js",
@@ -9,7 +9,7 @@
   "static/js/3.136b86f2.chunk.js": "/tucineya/static/js/3.136b86f2.chunk.js",
   "static/js/3.136b86f2.chunk.js.map": "/tucineya/static/js/3.136b86f2.chunk.js.map",
   "index.html": "/tucineya/index.html",
-  "precache-manifest.b9d5c56d13e1db349543173e9003dd37.js": "/tucineya/precache-manifest.b9d5c56d13e1db349543173e9003dd37.js",
+  "precache-manifest.e67c93e006068075875a94906a0bf699.js": "/tucineya/precache-manifest.e67c93e006068075875a94906a0bf699.js",
   "service-worker.js": "/tucineya/service-worker.js",
-  "static/css/main.7ac0ce91.chunk.css.map": "/tucineya/static/css/main.7ac0ce91.chunk.css.map"
+  "static/css/main.071ebd2c.chunk.css.map": "/tucineya/static/css/main.071ebd2c.chunk.css.map"
 }
