@@ -24,11 +24,12 @@ code {
   font-family: "Dosis", sans-serif;
 }
 
-.card-poster {
+.card.card-poster {
   width: 70%;
   height: auto;
   margin-bottom: 0.5rem;
   margin: 0 auto;
+  flex-direction:column;
 }
 
 #premiere {
