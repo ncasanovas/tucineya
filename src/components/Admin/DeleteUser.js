@@ -4,7 +4,7 @@ import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-export const AdminModal = ({ deleteUsers, setDeleteUsers }) => {
+export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
   const [show, setShow] = useState(false);
 
   const history = useHistory();
@@ -13,9 +13,18 @@ export const AdminModal = ({ deleteUsers, setDeleteUsers }) => {
   const handleShow = () => setShow(true);
 
   const handleDelete = () => {
-    deleteUsers.map(async (user) => {
-      await axios.delete(`https://tucineya.herokuapp.com/api/users/${user}`);
-    });
+    if (deleteUsers.length !== 0) {
+      deleteUsers.map(async (user) => {
+        await axios
+          .delete(
+            //`https://tucineya.herokuapp.com/api/users/${user}`
+            `http://localhost:4000/api/users/${user}`
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      });
+    }
 
     setDeleteUsers([]);
     handleClose();
