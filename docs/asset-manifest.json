@@ -1,15 +1,15 @@
 {
-  "main.css": "/tucineya/static/css/main.f82fc289.chunk.css",
-  "main.js": "/tucineya/static/js/main.0b53b695.chunk.js",
-  "main.js.map": "/tucineya/static/js/main.0b53b695.chunk.js.map",
+  "main.css": "/tucineya/static/css/main.7ac0ce91.chunk.css",
+  "main.js": "/tucineya/static/js/main.fdf83ca2.chunk.js",
+  "main.js.map": "/tucineya/static/js/main.fdf83ca2.chunk.js.map",
   "runtime~main.js": "/tucineya/static/js/runtime~main.3e63f42e.js",
   "runtime~main.js.map": "/tucineya/static/js/runtime~main.3e63f42e.js.map",
-  "static/js/2.cd812920.chunk.js": "/tucineya/static/js/2.cd812920.chunk.js",
-  "static/js/2.cd812920.chunk.js.map": "/tucineya/static/js/2.cd812920.chunk.js.map",
+  "static/js/2.034a2847.chunk.js": "/tucineya/static/js/2.034a2847.chunk.js",
+  "static/js/2.034a2847.chunk.js.map": "/tucineya/static/js/2.034a2847.chunk.js.map",
   "static/js/3.136b86f2.chunk.js": "/tucineya/static/js/3.136b86f2.chunk.js",
   "static/js/3.136b86f2.chunk.js.map": "/tucineya/static/js/3.136b86f2.chunk.js.map",
   "index.html": "/tucineya/index.html",
-  "precache-manifest.a00c49c283966d991fbedb8841d6e831.js": "/tucineya/precache-manifest.a00c49c283966d991fbedb8841d6e831.js",
+  "precache-manifest.bedecc318ac765754686a39de34c50fd.js": "/tucineya/precache-manifest.bedecc318ac765754686a39de34c50fd.js",
   "service-worker.js": "/tucineya/service-worker.js",
-  "static/css/main.f82fc289.chunk.css.map": "/tucineya/static/css/main.f82fc289.chunk.css.map"
+  "static/css/main.7ac0ce91.chunk.css.map": "/tucineya/static/css/main.7ac0ce91.chunk.css.map"
 }
