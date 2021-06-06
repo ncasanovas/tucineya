@@ -9,7 +9,7 @@ import { Home } from "./components/Home";
 import { Registro } from "./components/Registro";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Admin } from "./components/Admin";
+import { Admin } from "./components/Admin/Admin";
 
 import { MoviesContext } from "./components/MoviesContext";
 

@@ -272,14 +272,6 @@ button#btn-abrir-popup.btn {
   font-size: 20px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 40px;
-  width: 40px;
-  background-color: rgba(0, 0, 0, 0.795);
-  border-radius: 50%;
-}
-
 .card {
   flex-direction: row;
 }

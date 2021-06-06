@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { Modal, Button, Accordion, Card, Carousel } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { Modal, Button } from "react-bootstrap";
 import { MovieCard } from "./MovieCard";
 
-export const AddMovie = () => {
+export const SearchMovie = () => {
   const [show, setShow] = useState(false);
   const [inputValue, setInputValue] = useState();
   const [movieResult, setMovieResult] = useState();
-
-  const history = useHistory();
 
   const handleClose = () => {
     setShow(false);

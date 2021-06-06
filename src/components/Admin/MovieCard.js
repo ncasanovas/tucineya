@@ -1,18 +1,14 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { MoviesContext } from "./MoviesContext";
 
 export const MovieCard = ({ movie }) => {
-  const history = useHistory();
-
   const onClickAddMovie = async () => {
     await axios
-      .put("http://localhost:4000/api/movies/", movie)
+      .post("http://localhost:4000/api/movies/", movie)
       .then((data) => {
         alert(data.data.message);
-        history.go(0);
       })
       .catch((e) => {
         console.log(e);
