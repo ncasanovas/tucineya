@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Registro /> debe de mostrarse correctamente 1`] = `
+<Fragment>
+  <div
+    className="mb-3 row"
+  >
+    <div
+      className="justify-content-center"
+    >
+      <div
+        className="row"
+      >
+        <HashRouter>
+          <Link
+            className="col-2 align-items-center"
+            to="/"
+          >
+            Atras
+          </Link>
+        </HashRouter>
+        <p
+          className="fs-1 col-8"
+        >
+          FORMULARIO DE REGISTRO
+        </p>
+      </div>
+      <form
+        className="px-4 py-3"
+        onSubmit={[Function]}
+      >
+        <p>
+          DATOS PERSONALES
+        </p>
+        <div
+          className="form-group row"
+        >
+          <div
+            className="col"
+          >
+            <input
+              className="form-control mb-3"
+              id="nombre"
+              name="nombre"
+              onChange={[Function]}
+              placeholder="Nombre"
+              required={true}
+              type="text"
+            />
+            <input
+              className="form-control mb-3"
+              id="apellido"
+              name="apellido"
+              onChange={[Function]}
+              placeholder="Apellido"
+              required={true}
+              type="text"
+            />
+            <input
+              className="form-control mb-3"
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Mail"
+              required={true}
+              type="email"
+            />
+            <input
+              className="form-control mb-3"
+              id="username"
+              name="username"
+              onChange={[Function]}
+              placeholder="Nombre de usuario"
+              required={true}
+              type="text"
+            />
+            <input
+              className="form-control mb-3"
+              id="lname"
+              name="password"
+              onChange={[Function]}
+              placeholder="Contraseña"
+              required={true}
+              type="text"
+            />
+            <input
+              className="form-control mb-3"
+              id="lname"
+              name="repassword"
+              onChange={[Function]}
+              placeholder="Confirma Contraseña"
+              required={true}
+              type="text"
+            />
+          </div>
+          <div
+            className="col"
+          >
+            <input
+              className="form-control mb-3"
+              id="celular"
+              name="celular"
+              onChange={[Function]}
+              placeholder="Celular"
+              required={true}
+              type="number"
+            />
+            <input
+              className="form-control mb-3"
+              id="direccion"
+              name="direccion"
+              onChange={[Function]}
+              placeholder="Dirección"
+              required={true}
+              type="text"
+            />
+            <input
+              className="form-control mb-3"
+              id="piso"
+              name="piso"
+              onChange={[Function]}
+              placeholder="Piso"
+              type="number"
+            />
+            <input
+              className="form-control mb-3"
+              id="dpto"
+              name="dpto"
+              onChange={[Function]}
+              placeholder="Dpto"
+              type="text"
+            />
+            <button
+              className="btn btn-success mb-3"
+              type="submit"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</Fragment>
+`;

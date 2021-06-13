@@ -24,11 +24,12 @@ code {
   font-family: "Dosis", sans-serif;
 }
 
-.card-poster {
+.card.card-poster {
   width: 70%;
   height: auto;
   margin-bottom: 0.5rem;
   margin: 0 auto;
+  flex-direction:column;
 }
 
 #premiere {
@@ -53,6 +54,7 @@ code {
   font-size: 1.3rem;
 }
 
+
 img.icons-home {
   width: 6em;
   height: auto;
@@ -69,21 +71,19 @@ button#btn-abrir-popup.btn {
 }
 
 .footer {
-
-    background-color: #bf80ff;
-    left: 0;
-    bottom: 0;
-    font-family: "Dosis", sans-serif;
-    width: 100%;
-    overflow: hidden;
-    height: 5em;
-    position: fixed;
-    margin-bottom: 0px;
-    right: 0px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-
+  background-color: #bf80ff;
+  left: 0;
+  bottom: 0;
+  font-family: "Dosis", sans-serif;
+  width: 100%;
+  overflow: hidden;
+  height: 5em;
+  position: fixed;
+  margin-bottom: 0px;
+  right: 0px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .footer > .row > .col-sm {
@@ -266,11 +266,14 @@ button#btn-abrir-popup.btn {
 }
 
 #imgPelicula {
-  margin-left: 0.8rem;
   width: 150px;
   height: 200px;
 }
 
 #cardText {
   font-size: 20px;
+}
+
+.card {
+  flex-direction: row;
 }

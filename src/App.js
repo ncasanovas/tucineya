@@ -1,20 +1,15 @@
-
 import React, { useState } from "react";
-
 import {
   BrowserRouter,
   HashRouter as Router,
   Route,
   Switch,
 } from "react-router-dom";
-
-
-
 import { Home } from "./components/Home";
 import { Registro } from "./components/Registro";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Admin } from "./components/Admin";
+import { Admin } from "./components/Admin/Admin";
 
 import { MoviesContext } from "./components/MoviesContext";
 
@@ -22,11 +17,7 @@ export const App = () => {
   const [moviesContext, setMoviesContext] = useState();
   return (
     <BrowserRouter>
-
       <div>
-
-     
-
         <div>
           <Header />
         </div>
