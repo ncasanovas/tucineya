@@ -9,7 +9,8 @@ export const AdminMovies = () => {
 
   const onClickDeleteMovie = async (nombrePelicula) => {
     await axios
-      .delete(`http://localhost:4000/api/movies/${nombrePelicula}`)
+      //.delete(`http://localhost:4000/api/movies/${nombrePelicula}`)
+      .delete(`https://tucineya.herokuapp.com/api/movies/${nombrePelicula}`)
       .then((res) => {
         alert(res.data.message);
       })
