@@ -1,5 +1,5 @@
 import React from 'react';
-import emailjs from 'emailjs-com';
+
 
 export default function Mails() {
 

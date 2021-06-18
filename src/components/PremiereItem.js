@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const PremiereItem = ({ title, url, video }) => {
   return (
-    <div className="card card-poster animate__animated animate__fadeIn">
+    <div id="card-premiere" className="card card-poster animate__animated animate__fadeIn">
       <p id="title-premiere">{title}</p>
       <img
         id="posters-premiere"

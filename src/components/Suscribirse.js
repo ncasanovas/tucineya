@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import emailjs from 'emailjs-com';
 import "../index.css";
 
 export const Suscribirse = () => {
+
+  const [formError, setFormError] = useState(false); 
+
   window.onload = function () {
     const btnAbrirPopup = document.getElementById("btn-abrir-popup"),
       overlay = document.getElementById("overlay"),
@@ -20,19 +24,21 @@ export const Suscribirse = () => {
     });
   };
 
-
+ 
   function sendEmail(e) {
     e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+    emailjs.sendForm('gmail', 'template_aw5uok9', e.target, 'user_LcLtCbtqDfh0IUE6zlGFi')
       .then((result) => {
-          window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
-      }, (error) => {
-          console.log(error.text);
+            //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+            window.location.reload();
+            setFormError({ formError: false });  
+        }, (error) => {
+          setFormError({ formError: true , error });
       });
   }
 
-
+  
   return (
     <div>
       <button className="btn btn-primary" id="btn-abrir-popup">
@@ -46,15 +52,49 @@ export const Suscribirse = () => {
             </a>
             <h3>SUSCRIBETE</h3>
             <h4>y recibe las novedades.</h4>
-            <form onSubmit={sendEmail}>
+            <form className="contact-form" onSubmit={sendEmail}>
               <div className="contenedor-inputs">
-                <input type="text" placeholder="Nombre" />
-                <input type="email" placeholder="Correo" />
+                <input type="text" placeholder="Nombre" name="to_name"/>
+                <input type="email" placeholder="Correo" name="to_email"/>
               </div>
               <input type="submit" className="btn-submit" value="Suscribirse"/>
+             
+      
             </form>
           </div>
         </div>
+      </div>
+      <div>
+      { !formError ? (
+        <div className="contenedor">
+        <div className="overlay" id="overlay">
+          <div className="popup">
+          <a href="#" id="btn-cerrar-popup" className="btn-cerrar-popup">
+              <i className="fas fa-times"></i>
+            </a>
+            <div className="popup_inner">
+              <h1>Ya estás suscripto</h1>
+              <button>close me</button>
+            </div>
+          </div>
+          </div>
+          </div>
+      ) : (
+          <div className="contenedor">
+          <div className="overlay" id="overlay">
+        <div className="popup">
+           <a href="#" id="btn-cerrar-popup" className="btn-cerrar-popup">
+              <i className="fas fa-times"></i>
+            </a>
+          <div className="popup_inner">
+            <h1>Hubo un error en la suscripción</h1>
+            <button>close me</button>
+          </div>
+        </div>
+           </div>
+           </div>
+      )
+      }
       </div>
     </div>
   );
