@@ -24,6 +24,7 @@ exports[`Pruebas en <Form /> debe de mostrarse correctamente 1`] = `
             name="email"
             onChange={[Function]}
             placeholder="Email"
+            required={true}
             type="email"
           />
           <label
@@ -37,6 +38,7 @@ exports[`Pruebas en <Form /> debe de mostrarse correctamente 1`] = `
             name="password"
             onChange={[Function]}
             placeholder="Contraseña"
+            required={true}
             type="text"
           />
         </div>
@@ -57,13 +59,14 @@ exports[`Pruebas en <Form /> debe de mostrarse correctamente 1`] = `
       <div
         className="btn-sm"
       >
-        <Link
-          className="btn btn-success"
-          to="/registro"
-          type="submit"
-        >
-          Registrarse
-        </Link>
+        <HashRouter>
+          <Link
+            className="btn btn-success"
+            to="/registro"
+          >
+            Registrarse
+          </Link>
+        </HashRouter>
       </div>
       <Suscribirse />
     </div>

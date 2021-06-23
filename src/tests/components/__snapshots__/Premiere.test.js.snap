@@ -9,23 +9,7 @@ exports[`Pruebas en <Premiere /> debe de mostrarse correctamente 1`] = `
     Próximos Estrenos
   </h1>
   <div
-    className="mb-3 d-flex justify-content-center w-100"
-  >
-    <img
-      alt="poster"
-      className="premiere"
-      src="https://i.pinimg.com/originals/f0/6f/f7/f06ff76b83cabc89b7ab475bf36691b6.jpg"
-    />
-  </div>
-  <h2>
-    Trailer:
-  </h2>
-  <iframe
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    className="d-flex justify-content-center w-100 p-2 h-100 d-inline-block"
-    frameBorder="0"
-    src="https://www.youtube.com/embed/XEMwSdne6UE"
-    title="YouTube video player"
+    className="d-flex"
   />
 </div>
 `;
