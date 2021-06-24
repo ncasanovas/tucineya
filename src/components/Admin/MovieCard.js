@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
-import { useHistory } from "react-router";
 
 export const MovieCard = ({ movie }) => {
   const onClickAddMovie = async () => {

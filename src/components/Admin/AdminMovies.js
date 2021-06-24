@@ -6,9 +6,9 @@ import axios from "axios";
 export const AdminMovies = () => {
   const { moviesContext } = useContext(MoviesContext);
 
-  const onClickDeleteMovie = async (nombrePelicula) => {
+  const onClickDeleteMovie = async (idNombrePelicula) => {
     await axios
-      .delete(`http://localhost:4000/api/movies/${nombrePelicula}`)
+      .delete(`http://localhost:4000/api/movies/${idNombrePelicula}`)
       .then((res) => {
         alert(res.data.message);
       })
@@ -34,17 +34,19 @@ export const AdminMovies = () => {
                       <img
                         src={movie.posterPelicula}
                         className="card-img-top"
-                        alt={movie.nombrePelicula}
+                        alt={movie.idNombrePelicula}
                       />
                       <div className="card-body p-0 ">
                         <div className="d-flex justify-content-center  m-2">
-                          <h6 className="card-title">{movie.nombrePelicula}</h6>
+                          <h6 className="card-title">
+                            {movie.idNombrePelicula}
+                          </h6>
                         </div>
                         <div>
                           <button
                             className="btn btn-danger "
                             onClick={() =>
-                              onClickDeleteMovie(movie.nombrePelicula)
+                              onClickDeleteMovie(movie.idNombrePelicula)
                             }
                           >
                             Eliminar
