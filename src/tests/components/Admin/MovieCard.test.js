@@ -17,7 +17,7 @@ describe("Pruebas en componente <MovieCard />", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("Agregar pelicula a la base de adtos al hacer click", () => {
+  test("Agregar pelicula a la base de datos al hacer click", () => {
     expect(wrapper.find("Button").at(0).simulate("click").prop("active")).toBe(
       false
     );
