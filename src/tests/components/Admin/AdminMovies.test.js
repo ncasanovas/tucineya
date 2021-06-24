@@ -23,9 +23,13 @@ describe("Pruebas en componente <AdminMovies />", () => {
   });
 
   test("Debe traer las peliculas de la base de datos", async () => {
-    await axios.get("http://localhost:4000/api/movies/").then((res) => {
-      expect(res.data).not.toEqual([[]]);
-      expect(typeof res.data.length).toBe("number");
-    });
+    jest.setTimeout(30000);
+    //await axios.get("http://localhost:4000/api/movies/").then((res) => {
+    await axios
+      .get("https://tucineya.herokuapp.com/api/movies/")
+      .then((res) => {
+        expect(res.data).not.toEqual([[]]);
+        expect(typeof res.data.length).toBe("number");
+      });
   });
 });
