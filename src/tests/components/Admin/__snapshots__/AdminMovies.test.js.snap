@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en componente <AdminMovies /> Debe mostrar correctamente el componente 1`] = `
+<div>
+  <div>
+    <div
+      className="d-flex justify-content-center"
+    >
+      <div
+        className="spinner-border text-primary d-flex justify-content-center"
+        role="status"
+      >
+        <span
+          className="visually-hidden "
+        >
+          Loading...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
