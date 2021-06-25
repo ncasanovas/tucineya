@@ -17,8 +17,8 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
       deleteUsers.map(async (user) => {
         await axios
           .delete(
-            //`https://tucineya.herokuapp.com/api/users/${user}`
-            `http://localhost:4000/api/users/${user}`
+            `https://tucineya.herokuapp.com/api/users/${user}`
+            //`http://localhost:4000/api/users/${user}`
           )
           .catch((e) => {
             console.log(e);
