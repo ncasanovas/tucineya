@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <Premiere /> debe de mostrarse correctamente 1`] = `
+exports[`Pruebas en <Premiere /> debe de mostrar <Premiere /> correctamente 1`] = `
 <div
   className="mb-3"
   id="premiere"
@@ -8,8 +8,37 @@ exports[`Pruebas en <Premiere /> debe de mostrarse correctamente 1`] = `
   <h1>
     Próximos Estrenos
   </h1>
-  <div
-    className="d-flex"
-  />
+  <div>
+    <h4
+      className="mt-5"
+    >
+      No se encontraron próximos estrenos
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`Pruebas en <Premiere /> debe de mostrarse la data de las películas de la api 1`] = `
+<div
+  className="mb-3"
+  id="premiere"
+>
+  <h1>
+    Próximos Estrenos
+  </h1>
+  <div>
+    <PremiereItem
+      id="ABC"
+      key="ABC"
+      title="Scary Movie"
+      url="https://localhost/example.jpg"
+    />
+    <PremiereItem
+      id="123"
+      key="123"
+      title="Scary Movie 2"
+      url="https://localhost/example.jpg"
+    />
+  </div>
 </div>
 `;
