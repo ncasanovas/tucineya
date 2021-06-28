@@ -2,7 +2,7 @@ import React from 'react';
 
 export const getPremieres = async() => {
      
-     const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=350f655333437185ccf33d95346bf8e6&region=AR`;
+     const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=350f655333437185ccf33d95346bf8e6&region=US`;
      const resp = await fetch(url);
 
      const data = await resp.json(); 
