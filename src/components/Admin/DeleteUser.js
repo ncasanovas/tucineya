@@ -53,7 +53,11 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
           ¿Está seguro de querer eliminar los usuarios seleccionados?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary btn-secondary" onClick={handleClose}>
+          <Button
+            className="button"
+            variant="secondary btn-secondary"
+            onClick={handleClose}
+          >
             Volver
           </Button>
           <Button variant="danger" onClick={handleDelete}>

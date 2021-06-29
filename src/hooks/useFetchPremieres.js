@@ -12,10 +12,9 @@ export const useFetchPremieres = (estrenos) => {
         
         getPremieres(estrenos)
             .then(premieres => {
-                    setstate({
-                        data: premieres,
+                setstate({
+                    data: premieres,
                 });
-              
             })
     }, [estrenos]);
 
