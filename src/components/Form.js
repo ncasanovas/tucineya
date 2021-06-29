@@ -33,6 +33,8 @@ export const Form = () => {
         });
         if (res.data.admin) {
           history.replace("./admin");
+        } else if (res.data.encontrado) {
+          history.replace("./buscarPelicula");
         } else {
           alert(res.data.message);
           //console.log(history);
