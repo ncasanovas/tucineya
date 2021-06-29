@@ -26,15 +26,16 @@ export const Suscribirse = () => {
 
  
   function sendEmail(e) {
-    e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+    e.preventDefault();    
 
     emailjs.sendForm('gmail', 'template_aw5uok9', e.target, 'user_LcLtCbtqDfh0IUE6zlGFi')
       .then((result) => {
-            //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
             window.location.reload();
             setFormError({ formError: false });  
+            alert("Gracias por suscribirte");
         }, (error) => {
           setFormError({ formError: true , error });
+          alert("La suscripción falló. Intentá nuevamente.");
       });
   }
 
@@ -57,9 +58,7 @@ export const Suscribirse = () => {
                 <input type="text" placeholder="Nombre" name="to_name"/>
                 <input type="email" placeholder="Correo" name="to_email"/>
               </div>
-              <input type="submit" className="btn-submit" value="Suscribirse"/>
-             
-      
+              <input type="submit" className="btn-submit" value="Suscribirse"/>      
             </form>
           </div>
         </div>
