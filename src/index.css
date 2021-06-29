@@ -64,6 +64,10 @@ code {
   height: auto;
 }
 
+#card-premiere {
+  z-index: -1;
+}
+
 #posters-premiere {
   width: 80%;
   height: auto;
@@ -178,7 +182,6 @@ button#btn-abrir-popup.btn {
   padding: 20px;
   text-align: center;
   width: 600px;
-
   transition: 0.3s ease all;
   transform: scale(0.7);
   opacity: 0;
