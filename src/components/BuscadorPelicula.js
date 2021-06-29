@@ -23,20 +23,6 @@ export const BuscadorPelicula = () => {
     setInputValue("");
   };
 
-  const onClickSearchLocality = async (e) => {
-    e.target.reset();
-    e.preventDefault();
-    await axios
-      .get(`http://localhost:4000/api/cines/${inputValue}`)
-      .then((res) => {
-        setResult(res.data[0]);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    setInputValue("");
-  };
-
   return (
     <div className="row mt-4">
       <div className="col mb-3">
@@ -48,22 +34,17 @@ export const BuscadorPelicula = () => {
           />
           <button className="btn-primary">Buscar</button>
         </form>
-        <form className="mt-4" onSubmit={onClickSearchLocality}>
-          <input
-            type="text"
-            placeholder="Busque por localidad"
-            onChange={onChangeinput}
-          />
-          <button className="btn-primary">Buscar</button>
-        </form>
       </div>
-      <div className="col">
+      <div className="col d-flex">
         {result
           ? result.map((res, i) => {
               return (
-                <div>
-                  {res.idNombrePelicula}
-                  {res.idLocalidad}
+                <div key={i}>
+                  <img
+                    src={res.posterPelicula}
+                    alt={res.idNombrePelicula}
+                    className="d-block w-75"
+                  />
                 </div>
               );
             })
