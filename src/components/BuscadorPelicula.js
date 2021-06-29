@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HashRouter, Link } from "react-router-dom";
 import axios from "axios";
 
 export const BuscadorPelicula = () => {
@@ -25,6 +26,13 @@ export const BuscadorPelicula = () => {
 
   return (
     <div className="row mt-4">
+      <div className="d-flex justify-content-end">
+        <HashRouter>
+          <Link to="/" className="col-2 align-items-center">
+            Atras
+          </Link>
+        </HashRouter>
+      </div>
       <div className="col mb-3">
         <form className="mb-4" onSubmit={onClickSearchMovie}>
           <input
