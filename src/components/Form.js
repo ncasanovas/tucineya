@@ -65,7 +65,7 @@ export const Form = () => {
               />
               <label htmlFor="lname">Contraseña:</label>
               <input
-                type="text"
+                type="password"
                 id="lname"
                 className="form-control mb-3"
                 name="password"

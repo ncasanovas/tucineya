@@ -13,6 +13,7 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
   const handleShow = () => setShow(true);
 
   const handleDelete = () => {
+    console.log(deleteUsers);
     if (deleteUsers.length !== 0) {
       deleteUsers.map(async (user) => {
         await axios
@@ -28,7 +29,6 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
 
     setDeleteUsers([]);
     handleClose();
-    history.go(0);
   };
 
   return (

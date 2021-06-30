@@ -39,7 +39,7 @@ exports[`Pruebas en <Form /> debe de mostrarse correctamente 1`] = `
             onChange={[Function]}
             placeholder="Contraseña"
             required={true}
-            type="text"
+            type="password"
           />
         </div>
         <div
