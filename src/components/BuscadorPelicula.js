@@ -16,7 +16,8 @@ export const BuscadorPelicula = () => {
     e.target.reset();
     e.preventDefault();
     await axios
-      .get(`http://localhost:4000/api/movies/${inputValue}`)
+      //.get(`http://localhost:4000/api/movies/${inputValue}`)
+      .post(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
         setResult(res.data.data[0]);
       })
