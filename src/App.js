@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { Admin } from "./components/Admin/Admin";
 
 import { MoviesContext } from "./components/MoviesContext";
+import { BuscadorPelicula } from "./components/BuscadorPelicula";
 
 export const App = () => {
   const [moviesContext, setMoviesContext] = useState();
@@ -27,6 +28,11 @@ export const App = () => {
               <Route path="/" exact component={Home} />
               <Route path="/registro" exact component={Registro} />
               <Route path="/admin" exact component={Admin} />
+              <Route
+                path="/buscarPelicula"
+                exact
+                component={BuscadorPelicula}
+              />
             </Switch>
           </MoviesContext.Provider>
         </Router>

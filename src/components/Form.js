@@ -33,6 +33,8 @@ export const Form = () => {
         });
         if (res.data.admin) {
           history.replace("./admin");
+        } else if (res.data.encontrado) {
+          history.replace("./buscarPelicula");
         } else {
           alert(res.data.message);
           //console.log(history);
@@ -63,7 +65,7 @@ export const Form = () => {
               />
               <label htmlFor="lname">Contraseña:</label>
               <input
-                type="text"
+                type="password"
                 id="lname"
                 className="form-control mb-3"
                 name="password"
