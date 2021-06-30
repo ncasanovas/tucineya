@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { Modal, Button } from "react-bootstrap";
-import { useHistory } from "react-router";
 
 export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
   const [show, setShow] = useState(false);
-
-  const history = useHistory();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleDelete = () => {
-    console.log(deleteUsers);
     if (deleteUsers.length !== 0) {
       deleteUsers.map(async (user) => {
         await axios

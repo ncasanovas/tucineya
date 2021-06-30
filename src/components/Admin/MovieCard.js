@@ -5,8 +5,8 @@ import { Card, Button } from "react-bootstrap";
 export const MovieCard = ({ movie }) => {
   const onClickAddMovie = async () => {
     await axios
-      //.post("http://localhost:4000/api/movies/", movie)
-      .post("https://tucineya.herokuapp.com/api/movies/", movie)
+      .post("http://localhost:4000/api/movies/", movie)
+      //.post("https://tucineya.herokuapp.com/api/movies/", movie)
       .then((data) => {
         alert(data.data.message);
       })

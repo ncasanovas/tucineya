@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { HashRouter, Link } from "react-router-dom";
 import axios from "axios";
 
+import { Trailer } from "./Trailer";
+
 export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
   const [result, setResult] = useState();
@@ -53,6 +55,7 @@ export const BuscadorPelicula = () => {
                     alt={res.idNombrePelicula}
                     className="d-block w-75"
                   />
+                  <Trailer movie={res} />
                 </div>
               );
             })
