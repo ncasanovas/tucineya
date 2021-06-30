@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Suscribirse /> debe de mostrarse correctamente 1`] = `
+<div>
+  <button
+    className="btn btn-primary"
+    id="btn-abrir-popup"
+  >
+    Subscribirse
+  </button>
+  <div
+    className="contenedor"
+  >
+    <div
+      className="overlay"
+      id="overlay"
+    >
+      <div
+        className="popup"
+        id="popup"
+      >
+        <a
+          className="btn-cerrar-popup"
+          href="#"
+          id="btn-cerrar-popup"
+        >
+          <i
+            className="fas fa-times"
+          />
+        </a>
+        <h3>
+          SUSCRIBETE
+        </h3>
+        <h4>
+          y recibe las novedades.
+        </h4>
+        <form
+          className="contact-form"
+          onSubmit={[Function]}
+        >
+          <div
+            className="contenedor-inputs"
+          >
+            <input
+              name="to_name"
+              placeholder="Nombre"
+              type="text"
+            />
+            <input
+              name="to_email"
+              placeholder="Correo"
+              type="email"
+            />
+          </div>
+          <input
+            className="btn-submit"
+            type="submit"
+            value="Suscribirse"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+  <div />
+</div>
+`;
