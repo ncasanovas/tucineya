@@ -1,99 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pruebas en <Suscribirse /> debe de mostrarse correctamente 1`] = `
-<div>
-  <button
-    className="btn btn-primary"
-    id="btn-abrir-popup"
+<div
+  className="mt-2 "
+>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    variant="primary"
   >
-    Subscribirse
-  </button>
-  <div
-    className="contenedor"
+    Suscribirse
+  </Button>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop="static"
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={false}
+    onHide={[Function]}
+    restoreFocus={true}
+    show={false}
   >
-    <div
-      className="overlay"
-      id="overlay"
+    <ModalHeader
+      closeButton={true}
+      closeLabel="Close"
     >
-      <div
-        className="popup"
-        id="popup"
+      <ModalTitle
+        className="title-sub"
       >
-        <a
-          className="btn-cerrar-popup"
-          href="#"
-          id="btn-cerrar-popup"
-        >
-          <i
-            className="fas fa-times"
-          />
-        </a>
-        <h3>
-          SUSCRIBETE
-        </h3>
-        <h4>
-          y recibe las novedades.
-        </h4>
-        <form
-          className="contact-form"
-          onSubmit={[Function]}
-        >
-          <div
-            className="contenedor-inputs"
-          >
-            <input
-              name="to_name"
-              placeholder="Nombre"
-              type="text"
-            />
-            <input
-              name="to_email"
-              placeholder="Correo"
-              type="email"
-            />
-          </div>
-          <input
-            className="btn-submit"
-            type="submit"
-            value="Suscribirse"
-          />
-        </form>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div
-      className="contenedor"
-    >
-      <div
-        className="overlay"
-        id="overlay"
+        Suscribite
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <form
+        className="contact-form"
+        onSubmit={[Function]}
       >
         <div
-          className="popup"
+          className="contenedor-inputs"
         >
-          <a
-            className="btn-cerrar-popup"
-            href="#"
-            id="btn-cerrar-popup"
-          >
-            <i
-              className="fas fa-times"
-            />
-          </a>
-          <div
-            className="popup_inner"
-          >
-            <h1>
-              Ya estás suscripto
-            </h1>
-            <button>
-              close me
-            </button>
-          </div>
+          <input
+            name="to_name"
+            placeholder="Nombre"
+            type="text"
+          />
+          <input
+            name="to_email"
+            placeholder="Correo"
+            type="email"
+          />
         </div>
-      </div>
-    </div>
-  </div>
+        <input
+          className="btn-submit btn-primary"
+          type="submit"
+          value="Suscribirse"
+        />
+      </form>
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        variant="secondary btn-secondary"
+      >
+        Volver
+      </Button>
+    </ModalFooter>
+  </Modal>
 </div>
 `;
