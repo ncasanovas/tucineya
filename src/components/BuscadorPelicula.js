@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter, Link } from "react-router-dom";
 import axios from "axios";
 
 import { Trailer } from "./Trailer";
+import { ElegirCine } from "./ElegirCine";
 
 export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
   const [result, setResult] = useState();
+  const [localidades, setLocalidades] = useState();
+
+  useEffect(async () => {
+    await axios.get("http://localhost:4000/api/cines/").then((res) => {
+      setLocalidades(res.data[0]);
+    });
+  }, []);
 
   const onChangeinput = (e) => {
     setInputValue(e.target.value);
@@ -45,6 +53,9 @@ export const BuscadorPelicula = () => {
           />
           <button className="btn-primary">Buscar</button>
         </form>
+        <div>
+          <ElegirCine localidades={localidades} />
+        </div>
       </div>
       <div className="col d-flex">
         {result
