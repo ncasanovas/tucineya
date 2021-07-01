@@ -11,9 +11,12 @@ export const BuscadorPelicula = () => {
   const [localidades, setLocalidades] = useState();
 
   useEffect(async () => {
-    await axios.get("http://localhost:4000/api/cines/").then((res) => {
-      setLocalidades(res.data[0]);
-    });
+    await axios
+      //.get("http://localhost:4000/api/cines/")
+      .get("https://tucineya.herokuapp.com/api/cines/")
+      .then((res) => {
+        setLocalidades(res.data[0]);
+      });
   }, []);
 
   const onChangeinput = (e) => {
