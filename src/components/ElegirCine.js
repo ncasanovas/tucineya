@@ -6,7 +6,8 @@ export const ElegirCine = ({ localidades }) => {
   const [barrio, setBarrio] = useState([]);
   const onClick = async (localidad) => {
     await axios
-      .get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)
+      //.get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)
+      .get(`https://tucineya.herokuapp.com/api/cines/${localidad.idLocalidad}`)
       .then((res) => {
         setBarrio(res.data[0]);
       });
@@ -23,11 +24,7 @@ export const ElegirCine = ({ localidades }) => {
           ? null
           : localidades.map((localidad, i) => {
               return (
-                <Dropdown.Item
-                  key={i}
-                  /* href={localidad.idLocalidad} */
-                  onClick={() => onClick(localidad)}
-                >
+                <Dropdown.Item key={i} onClick={() => onClick(localidad)}>
                   {localidad.nombreLocalidad}
                 </Dropdown.Item>
               );
@@ -48,7 +45,6 @@ export const ElegirCine = ({ localidades }) => {
               })}
         </ul>
       </div>
-      {/* <p>{localidades[0].barrio}</p> */}
     </Dropdown>
   );
 };
