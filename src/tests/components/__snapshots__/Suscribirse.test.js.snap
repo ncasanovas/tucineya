@@ -61,6 +61,39 @@ exports[`Pruebas en <Suscribirse /> debe de mostrarse correctamente 1`] = `
       </div>
     </div>
   </div>
-  <div />
+  <div>
+    <div
+      className="contenedor"
+    >
+      <div
+        className="overlay"
+        id="overlay"
+      >
+        <div
+          className="popup"
+        >
+          <a
+            className="btn-cerrar-popup"
+            href="#"
+            id="btn-cerrar-popup"
+          >
+            <i
+              className="fas fa-times"
+            />
+          </a>
+          <div
+            className="popup_inner"
+          >
+            <h1>
+              Ya estás suscripto
+            </h1>
+            <button>
+              close me
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

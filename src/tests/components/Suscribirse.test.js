@@ -13,14 +13,6 @@ describe('Pruebas en <Suscribirse />', () => {
 
     });
 
-    
-    test("debe de abrirse el pop up al hacer click en Suscribirse", () => {
-        wrapper.find("button").at(0).simulate("click"); 
-        expect(wrapper.find('popup').hasClass('active')).to.equal(true);
-      
-    });
-
-
     test('debe de mostrar correctamente SUSCRIBETE en el h3', () => {
 
         const title = "SUSCRIBETE";
