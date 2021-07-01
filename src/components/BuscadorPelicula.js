@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { HashRouter, Link } from "react-router-dom";
 import axios from "axios";
-
 import { Trailer } from "./Trailer";
+import{ElegirCine} from "./ElegirCine"
 
 export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
   const [result, setResult] = useState();
+  
+  
 
   const onChangeinput = (e) => {
     setInputValue(e.target.value);
@@ -45,7 +47,11 @@ export const BuscadorPelicula = () => {
           />
           <button className="btn-primary">Buscar</button>
         </form>
+        <div>
+      <ElegirCine/>
+    </div>
       </div>
+
       <div className="col d-flex">
         {result
           ? result.map((res, i) => {
