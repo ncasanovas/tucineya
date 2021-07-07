@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en componente <SearchMovie/> Mostrar componente correctamente 1`] = `
+<div
+  className="mt-2"
+>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    Agregar Pelicula
+  </Button>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop="static"
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={false}
+    onHide={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle>
+        Pelicula
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <div
+        className="mb-3"
+      >
+        <input
+          onChange={[Function]}
+          placeholder="Busque por titulo"
+          type="text"
+        />
+        <Button
+          active={false}
+          disabled={false}
+          onClick={[Function]}
+          variant="secondary btn-secondary"
+        >
+          Buscar
+        </Button>
+      </div>
+      <div />
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        variant="secondary btn-secondary"
+      >
+        Volver
+      </Button>
+    </ModalFooter>
+  </Modal>
+</div>
+`;

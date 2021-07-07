@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Suscribirse /> debe de mostrarse correctamente 1`] = `
+<div
+  className="mt-2 "
+>
+  <Button
+    active={false}
+    disabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    Suscribirse
+  </Button>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop="static"
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={false}
+    onHide={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        className="title-sub"
+      >
+        Suscribite
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <form
+        className="contact-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="contenedor-inputs"
+        >
+          <input
+            name="to_name"
+            placeholder="Nombre"
+            type="text"
+          />
+          <input
+            name="to_email"
+            placeholder="Correo"
+            type="email"
+          />
+        </div>
+        <input
+          className="btn-submit btn-primary"
+          type="submit"
+          value="Suscribirse"
+        />
+      </form>
+    </ModalBody>
+    <ModalFooter>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        variant="secondary btn-secondary"
+      >
+        Volver
+      </Button>
+    </ModalFooter>
+  </Modal>
+</div>
+`;

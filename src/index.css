@@ -31,21 +31,6 @@ code {
   animation-timing-function: cubic-bezier(0.4, 0.23, 0.36, 1.51)
 }
 
-@keyframes desplazarse {
-  0% {
-      right: 50%;
-      
-  }
-  50% {
-      
-      left: 70%;
-  }
-  100% {
-      left: 0%;
-      
-  }
-}
-
 .card.card-poster {
   width: 70%;
   height: auto;
@@ -62,6 +47,10 @@ code {
 .premiere {
   width: 200px;
   height: auto;
+}
+
+#card-premiere {
+  z-index: -1;
 }
 
 #posters-premiere {
@@ -166,131 +155,62 @@ button#btn-abrir-popup.btn {
   visibility: hidden;
 }
 
-.overlay.active {
-  visibility: visible;
+#imgPelicula {
+  width: 150px;
+  height: 200px;
 }
 
-.popup {
-  background: #f8f8f8;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+#cardText {
+  font-size: 20px;
+}
+
+.card {
+  flex-direction: row;
+}
+
+.contenedor-inputs{
+  display: flex;
+  flex-direction:column ;
+  gap:10px;
+}
+
+.btn-submit{
+  /* display: flex;
+  flex-wrap:wrap; */
+  margin-top:10px;
   border-radius: 3px;
-  font-family: "Montserrat", sans-serif;
-  padding: 20px;
   text-align: center;
-  width: 600px;
-
-  transition: 0.3s ease all;
-  transform: scale(0.7);
-  opacity: 0;
+  border:none;
+  
 }
+  .title-sub{
+    display: flex;
+    margin-left:182px;
+    justify-content: center;
+  }
+  
+  
 
-.popup .btn-cerrar-popup {
-  font-size: 16px;
-  line-height: 16px;
-  display: block;
-  text-align: right;
-  transition: 0.3s ease all;
-  color: #bbbbbb;
-}
-
-.popup .btn-cerrar-popup:hover {
-  color: #000;
-}
-
-.popup h3 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  opacity: 0;
-}
-
-.popup h4 {
-  font-size: 26px;
-  font-weight: 300;
-  margin-bottom: 40px;
-  opacity: 0;
-}
-
-.popup form .contenedor-inputs {
-  opacity: 0;
-}
-
-.popup form .contenedor-inputs input {
-  width: 100%;
-  margin-bottom: 20px;
-  height: 52px;
-  font-size: 18px;
-  line-height: 52px;
-  text-align: center;
-  border: 1px solid #bbbbbb;
-}
-
-.popup form .btn-submit {
-  height: 40px;
-  line-height: 40px;
-  border: none;
-  color: #fff;
-  background: #5e7de3;
-  border-radius: 3px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease all;
-}
-
-.popup form .btn-submit:hover {
-  background: rgba(94, 125, 227, 0.9);
-}
 
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
-.popup.active {
-  transform: scale(1);
-  opacity: 1;
-}
-.popup.active h3 {
-  animation: entradaTitulo 0.8s ease 0.5s forwards;
-}
-.popup.active h4 {
-  animation: entradaSubtitulo 0.8s ease 0.5s forwards;
-}
-.popup.active .contenedor-inputs {
-  animation: entradaInputs 1s linear 1s forwards;
-}
 
-@keyframes entradaTitulo {
-  from {
-    opacity: 0;
-    transform: translateY(-25px);
+@keyframes desplazarse {
+  0% {
+      right: 50%;
+      
   }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  50% {
+      
+      left: 70%;
+  }
+  100% {
+      left: 0%;
+      
   }
 }
 
-@keyframes entradaSubtitulo {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes entradaInputs {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 #imgPelicula {
   width: 150px;

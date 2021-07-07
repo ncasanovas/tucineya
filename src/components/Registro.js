@@ -20,9 +20,7 @@ export const Registro = () => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
-      
     });
-    console.log(user.nombre);
   };
 
   const validar = (user) => {
@@ -31,8 +29,8 @@ export const Registro = () => {
     if (user.nombre.length > 15) {
       errors.nombre = "Debe contener 15 letras o menos";
     }
-    
-    if(!/[A-Za-z]/.test(user.nombre)) {
+
+    if (!/[A-Za-z]/.test(user.nombre)) {
       errors.nombre = "No debe contener caracteres especiales ni números";
     }
 
@@ -82,7 +80,6 @@ export const Registro = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    e.target.reset();
 
     if (Object.keys(validar(user)).length === 0) {
       await axios
@@ -90,7 +87,20 @@ export const Registro = () => {
         //.post("http://localhost:4000/api/register/", user)
         .then((res) => {
           alert(res.data.message);
-          console.log(res);
+
+          e.target.reset();
+          setUser({
+            nombre: "",
+            apellido: "",
+            email: "",
+            username: "",
+            password: "",
+            rePassword: "",
+            celular: "",
+            direccion: "",
+            piso: "",
+            dpto: "",
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -98,19 +108,6 @@ export const Registro = () => {
     } else {
       alert(JSON.stringify(validar(user)));
     }
-
-    setUser({
-      nombre: "",
-      apellido: "",
-      email: "",
-      username: "",
-      password: "",
-      rePassword: "",
-      celular: "",
-      direccion: "",
-      piso: "",
-      dpto: "",
-    });
   };
 
   return (

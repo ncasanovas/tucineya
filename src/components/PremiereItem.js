@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const PremiereItem = ({ title, url, video }) => {
+export const PremiereItem = ({ title, url }) => {
   return (
-    <div className="card card-poster animate__animated animate__fadeIn">
+    <div id="card-premiere" className="card card-poster animate__animated animate__fadeIn">
       <p id="title-premiere">{title}</p>
       <img
         id="posters-premiere"
@@ -16,6 +16,5 @@ export const PremiereItem = ({ title, url, video }) => {
 
 PremiereItem.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  video: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 };

@@ -9,7 +9,7 @@ export const Premiere = (estrenos) => {
     <div id="premiere" className="mb-3">
       <h1>Próximos Estrenos</h1>
       <div>
-        {movies.length != [] ? (
+        {movies.length !== [] ? (
           movies.map((movie) => <PremiereItem key={movie.id} {...movie} />)
         ) : (
           <h4 className="mt-5">No se encontraron próximos estrenos</h4>

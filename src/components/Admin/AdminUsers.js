@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 import { DeleteUser } from "./DeleteUser";
-export const AdminUsers = ({ users }) => {
+
+export const AdminUsers = () => {
+  const [users, setUsers] = useState();
   const [deleteUsers, setDeleteUsers] = useState([]);
+
+  useEffect(async () => {
+    await axios
+      .get("https://tucineya.herokuapp.com/api/users/")
+      //.get("http://localhost:4000/api/users/")
+      .then((res) => {
+        setUsers(res.data[0]);
+      });
+  }, []);
+
   const onChangeCheck = (e) => {
     if (e.target.checked) {
       setDeleteUsers([...deleteUsers, e.target.value]);

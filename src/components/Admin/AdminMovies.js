@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchMovie } from "./SearchMovie";
-import { MoviesContext } from "../MoviesContext";
 import axios from "axios";
-import { useHistory } from "react-router";
 
 export const AdminMovies = () => {
-  const { moviesContext } = useContext(MoviesContext);
+  const [movies, setMovies] = useState();
 
-  const onClickDeleteMovie = async (nombrePelicula) => {
+  useEffect(async () => {
     await axios
-      //.delete(`http://localhost:4000/api/movies/${nombrePelicula}`)
-      .delete(`https://tucineya.herokuapp.com/api/movies/${nombrePelicula}`)
+      .get("https://tucineya.herokuapp.com/api/movies/")
+      //.get("http://localhost:4000/api/movies/")
+      .then((res) => {
+        setMovies(res.data[0]);
+      });
+  });
+
+  const onClickDeleteMovie = async (idNombrePelicula) => {
+    await axios
+      //.delete(`http://localhost:4000/api/movies/${idNombrePelicula}`)
+      .delete(`https://tucineya.herokuapp.com/api/movies/${idNombrePelicula}`)
       .then((res) => {
         alert(res.data.message);
       })
@@ -22,30 +29,33 @@ export const AdminMovies = () => {
   return (
     <div>
       <div>
-        {moviesContext ? (
+        {movies ? (
           <div
+            id="withContext"
             className="overflow-auto d-flex container p-2"
             style={{ height: "350px", width: "auto" }}
           >
             <div className="row row-cols-3 row-cols-lg-5 row-cols-md-4 g-2 g-lg-3">
-              {moviesContext.map((movie, i) => {
+              {movies.map((movie, i) => {
                 return (
                   <div key={i}>
                     <div>
                       <img
                         src={movie.posterPelicula}
                         className="card-img-top"
-                        alt={movie.nombrePelicula}
+                        alt={movie.idNombrePelicula}
                       />
                       <div className="card-body p-0 ">
                         <div className="d-flex justify-content-center  m-2">
-                          <h6 className="card-title">{movie.nombrePelicula}</h6>
+                          <h6 className="card-title">
+                            {movie.idNombrePelicula}
+                          </h6>
                         </div>
                         <div>
                           <button
                             className="btn btn-danger "
                             onClick={() =>
-                              onClickDeleteMovie(movie.nombrePelicula)
+                              onClickDeleteMovie(movie.idNombrePelicula)
                             }
                           >
                             Eliminar
@@ -69,7 +79,7 @@ export const AdminMovies = () => {
           </div>
         )}
       </div>
-      {moviesContext ? <SearchMovie /> : null}
+      {movies ? <SearchMovie /> : null}
     </div>
   );
 };

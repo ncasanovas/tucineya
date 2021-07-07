@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { Modal, Button } from "react-bootstrap";
-import { useHistory } from "react-router";
 
 export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
   const [show, setShow] = useState(false);
-
-  const history = useHistory();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -28,7 +25,6 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
 
     setDeleteUsers([]);
     handleClose();
-    history.go(0);
   };
 
   return (
@@ -53,7 +49,11 @@ export const DeleteUser = ({ deleteUsers, setDeleteUsers }) => {
           ¿Está seguro de querer eliminar los usuarios seleccionados?
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary btn-secondary" onClick={handleClose}>
+          <Button
+            className="button"
+            variant="secondary btn-secondary"
+            onClick={handleClose}
+          >
             Volver
           </Button>
           <Button variant="danger" onClick={handleDelete}>

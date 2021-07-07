@@ -11,19 +11,12 @@ export const useFetchPremieres = (estrenos) => {
     useEffect(() => {
         
         getPremieres(estrenos)
-            //Tenemos las imágenes
             .then(premieres => {
-                //Ponemos el timeout intencional para hacerlo mas lento
-               //setTimeout(() => {
-                   //Cuando tenemos la data se llama al setState. Éste cambia la información. Va a disparar una renderización en el componente GifGrid.
-                    setstate({
-                        data: premieres,
+                setstate({
+                    data: premieres,
                 });
-               //}, 1500);
             })
     }, [estrenos]);
-
-    
 
     return state; 
 }
