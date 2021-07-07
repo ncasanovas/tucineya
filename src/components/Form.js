@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { HashRouter, Link, useHistory } from "react-router-dom";
+import { types } from "../types/types";
 
+import { AuthContext } from "../auth/AuthContext";
 import { Suscribirse } from "./Suscribirse";
 
 export const Form = () => {
@@ -9,6 +11,8 @@ export const Form = () => {
     email: "",
     password: "",
   });
+
+  const { dispatch } = useContext(AuthContext);
 
   const history = useHistory();
 
@@ -31,9 +35,22 @@ export const Form = () => {
           email: "",
           password: "",
         });
+
         if (res.data.admin) {
+          dispatch({
+            type: types.admin,
+            payload: {
+              token: res.data.username,
+            },
+          });
           history.replace("./admin");
         } else if (res.data.encontrado) {
+          dispatch({
+            type: types.login,
+            payload: {
+              token: res.data.username,
+            },
+          });
           history.replace("./buscarPelicula");
         } else {
           alert(res.data.message);

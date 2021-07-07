@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import {
   BrowserRouter,
   HashRouter as Router,
@@ -6,16 +6,28 @@ import {
   Switch,
 } from "react-router-dom";
 import { Home } from "./components/Home";
-import { Registro } from "./components/Registro";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Admin } from "./components/Admin/Admin";
 
-import { MoviesContext } from "./components/MoviesContext";
-import { BuscadorPelicula } from "./components/BuscadorPelicula";
+import { AuthContext } from "./auth/AuthContext";
+import { authReducer } from "./auth/authReducer";
+import { Logged } from "./routers/Logged";
+
+const init = () => {
+  return (
+    JSON.parse(localStorage.getItem("user")) || {
+      logged: false,
+    }
+  );
+};
 
 export const App = () => {
-  const [moviesContext, setMoviesContext] = useState();
+  const [state, dispatch] = useReducer(authReducer, {}, init);
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(state));
+  }, [state]);
+
   return (
     <BrowserRouter>
       <div>
@@ -23,18 +35,12 @@ export const App = () => {
           <Header />
         </div>
         <Router>
-          <MoviesContext.Provider value={{ moviesContext, setMoviesContext }}>
-            <Switch>
+          <Switch>
+            <AuthContext.Provider value={{ state, dispatch }}>
               <Route path="/" exact component={Home} />
-              <Route path="/registro" exact component={Registro} />
-              <Route path="/admin" exact component={Admin} />
-              <Route
-                path="/buscarPelicula"
-                exact
-                component={BuscadorPelicula}
-              />
-            </Switch>
-          </MoviesContext.Provider>
+              <Logged />
+            </AuthContext.Provider>
+          </Switch>
         </Router>
         <div>
           <Footer />
