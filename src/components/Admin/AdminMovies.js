@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchMovie } from "./SearchMovie";
-import { MoviesContext } from "../MoviesContext";
 import axios from "axios";
 
 export const AdminMovies = () => {
-  const { moviesContext } = useContext(MoviesContext);
+  const [movies, setMovies] = useState();
+
+  useEffect(async () => {
+    await axios
+      .get("https://tucineya.herokuapp.com/api/movies/")
+      //.get("http://localhost:4000/api/movies/")
+      .then((res) => {
+        setMovies(res.data[0]);
+      });
+  });
 
   const onClickDeleteMovie = async (idNombrePelicula) => {
     await axios
@@ -21,14 +29,14 @@ export const AdminMovies = () => {
   return (
     <div>
       <div>
-        {moviesContext ? (
+        {movies ? (
           <div
             id="withContext"
             className="overflow-auto d-flex container p-2"
             style={{ height: "350px", width: "auto" }}
           >
             <div className="row row-cols-3 row-cols-lg-5 row-cols-md-4 g-2 g-lg-3">
-              {moviesContext.map((movie, i) => {
+              {movies.map((movie, i) => {
                 return (
                   <div key={i}>
                     <div>
@@ -71,7 +79,7 @@ export const AdminMovies = () => {
           </div>
         )}
       </div>
-      {moviesContext ? <SearchMovie /> : null}
+      {movies ? <SearchMovie /> : null}
     </div>
   );
 };

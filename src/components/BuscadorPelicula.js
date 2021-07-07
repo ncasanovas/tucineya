@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { HashRouter, Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
+import { AuthContext } from "../auth/AuthContext";
+import { types } from "../types/types";
 import { Trailer } from "./Trailer";
 import { ElegirCine } from "./ElegirCine";
 
@@ -9,6 +11,8 @@ export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
   const [result, setResult] = useState();
   const [localidades, setLocalidades] = useState();
+  const { dispatch } = useContext(AuthContext);
+  const history = useHistory();
 
   useEffect(async () => {
     await axios
@@ -38,14 +42,19 @@ export const BuscadorPelicula = () => {
     setInputValue("");
   };
 
+  const handleLogout = () => {
+    dispatch({
+      type: types.logout,
+    });
+    history.replace("./");
+  };
+
   return (
     <div className="row mt-4">
       <div className="d-flex justify-content-end">
-        <HashRouter>
-          <Link to="/" className="col-2 align-items-center">
-            Atras
-          </Link>
-        </HashRouter>
+        <button className="nav-item nav-link btn" onClick={handleLogout}>
+          Log Out
+        </button>
       </div>
       <div className="col mb-3">
         <form className="mb-4" onSubmit={onClickSearchMovie}>
