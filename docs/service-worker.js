@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tucineya/precache-manifest.c6fef16a3c10e079ffe9a4836fff03c0.js"
+  "/tucineya/precache-manifest.fb9e7df3d4b4c90f4c582c77e287fabb.js"
 );
 
 workbox.clientsClaim();
