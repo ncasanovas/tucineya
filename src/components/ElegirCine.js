@@ -35,13 +35,19 @@ export const ElegirCine = ({ localidades }) => {
           {barrio.length === 0
             ? null
             : barrio.map((barrio, i) => {
-                return (
-                  <li key={i} className="list-group-item">
-                    {barrio.Barrio}
-                    {" - "}
-                    {barrio.nombre} {" , "} {barrio.ubicacion}
-                  </li>
-                );
+              return (
+                <li
+                  key={i}
+                  className="list-group-item"
+                  onDoubleClick={() => {
+                    console.log(barrio);
+                  }}
+                >
+                  {barrio.Barrio}
+                  {" - "}
+                  {barrio.nombre} {" , "} {barrio.ubicacion}
+                </li>
+              );
               })}
         </ul>
       </div>

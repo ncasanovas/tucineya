@@ -21,16 +21,16 @@ export const Admin = () => {
   return (
     <div className="container-fluid row">
       <div className="d-flex justify-content-end">
-        <button className="nav-item nav-link btn" onClick={handleLogout}>
-          Log Out
+        <button className="nav-item nav-link btn white-text" onClick={handleLogout}>
+        Cerrar Sesión
         </button>
       </div>
       <div className="col-sm-7 col-md-3 col-lg-3">
-        <h4 className="mb-4">Lista de usuarios</h4>
+        <h4 className="mb-4 white-text">Lista de usuarios</h4>
         <AdminUsers />
       </div>
       <div className="col-sm-12 col-md-9 col-lg-9">
-        <h4 className="mb-4">Peliculas</h4>
+        <h4 className="mb-4 white-text">Peliculas</h4>
         <AdminMovies />
       </div>
     </div>

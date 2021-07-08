@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   height: auto;
+  background-color: #242333;
 }
 
 code {
@@ -42,6 +43,7 @@ code {
 #premiere {
   height: 25em;
   overflow: auto;
+  color: #fff;
 }
 
 .premiere {
@@ -137,6 +139,12 @@ button#btn-abrir-popup.btn {
 .contenedor article .btn-abrir-popup:hover {
   background: rgba(94, 125, 227, 0.9);
 }
+
+
+.white-text {
+  color: #FFF;
+}
+
 
 /* ------------------------- */
 /* POPUP */
@@ -235,18 +243,6 @@ button#btn-abrir-popup.btn {
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: "Lato", sans-serif;
-  background-color: #242333;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .movie-container {

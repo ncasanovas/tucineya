@@ -52,8 +52,8 @@ export const BuscadorPelicula = () => {
   return (
     <div className="row mt-4">
       <div className="d-flex justify-content-end">
-        <button className="nav-item nav-link btn" onClick={handleLogout}>
-          Log Out
+        <button className="nav-item nav-link btn white-text" onClick={handleLogout}>
+          Cerrar Sesión
         </button>
       </div>
       <div className="col mb-3">

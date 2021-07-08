@@ -70,7 +70,7 @@ export const Form = () => {
         <div className="row justify-content-center">
           <form onSubmit={onSubmit} className="py-3 row justify-content-center">
             <div className="form-group row col-lg-6">
-              <label htmlFor="fname">Email:</label>
+              <label htmlFor="fname" className="white-text">Email:</label>
               <input
                 type="email"
                 id="fname"
@@ -80,7 +80,7 @@ export const Form = () => {
                 onChange={onChange}
                 required
               />
-              <label htmlFor="lname">Contraseña:</label>
+              <label htmlFor="lname" className="white-text">Contraseña:</label>
               <input
                 type="password"
                 id="lname"
@@ -97,7 +97,7 @@ export const Form = () => {
               </button>
             </div>
           </form>
-          <p>¿Todavía no te registraste?</p>
+          <p className="white-text">¿Todavía no te registraste?</p>
           <div className="btn-sm">
             <HashRouter>
               <Link to="/registro" className="btn btn-success">
