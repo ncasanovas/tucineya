@@ -1,27 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import { AuthContext } from "../auth/AuthContext";
+import { MovieContext } from "./MovieContext";
+
 import { types } from "../types/types";
-import { Trailer } from "./Trailer";
+import { ResultadoPeliculas } from "./ResultadoPeliculas";
 import { ElegirCine } from "./ElegirCine";
 
 export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
-  const [result, setResult] = useState();
-  const [localidades, setLocalidades] = useState();
   const { dispatch } = useContext(AuthContext);
+  const { setMovies } = useContext(MovieContext);
   const history = useHistory();
-
-  useEffect(async () => {
-    await axios
-      //.get("http://localhost:4000/api/cines/")
-      .get("https://tucineya.herokuapp.com/api/cines/")
-      .then((res) => {
-        setLocalidades(res.data[0]);
-      });
-  }, []);
 
   const onChangeinput = (e) => {
     setInputValue(e.target.value);
@@ -34,7 +26,7 @@ export const BuscadorPelicula = () => {
       //.get(`http://localhost:4000/api/movies/${inputValue}`)
       .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
-        setResult(res.data.data[0]);
+        setMovies(res.data.data[0]);
       })
       .catch((e) => {
         console.log(e);
@@ -52,7 +44,10 @@ export const BuscadorPelicula = () => {
   return (
     <div className="row mt-4">
       <div className="d-flex justify-content-end">
-        <button className="nav-item nav-link btn white-text" onClick={handleLogout}>
+        <button
+          className="nav-item nav-link btn white-text"
+          onClick={handleLogout}
+        >
           Cerrar Sesión
         </button>
       </div>
@@ -66,25 +61,10 @@ export const BuscadorPelicula = () => {
           <button className="btn-primary">Buscar</button>
         </form>
         <div>
-          <ElegirCine localidades={localidades} />
+          <ElegirCine />
         </div>
       </div>
-      <div className="col d-flex">
-        {result
-          ? result.map((res, i) => {
-              return (
-                <div key={i}>
-                  <img
-                    src={res.posterPelicula}
-                    alt={res.idNombrePelicula}
-                    className="d-block w-75"
-                  />
-                  <Trailer movie={res} />
-                </div>
-              );
-            })
-          : null}
-      </div>
+      <div className="col">{<ResultadoPeliculas />}</div>
     </div>
   );
 };

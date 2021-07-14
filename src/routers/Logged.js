@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Switch } from "react-router-dom";
 
 import { PrivateRoute } from "./PrivateRoute";
@@ -8,9 +8,11 @@ import { AuthContext } from "../auth/AuthContext";
 import { Registro } from "../components/Registro";
 import { Admin } from "../components/Admin/Admin";
 import { BuscadorPelicula } from "../components/BuscadorPelicula";
+import { MovieContext } from "../components/MovieContext";
 
 export const Logged = () => {
   const { state } = useContext(AuthContext);
+  const [movies, setMovies] = useState([]);
 
   return (
     <>
@@ -28,12 +30,14 @@ export const Logged = () => {
           isAuthenticated={state.logged}
           admin={state.admin}
         />
-        <PrivateRoute
-          path="/buscarPelicula"
-          exact
-          component={BuscadorPelicula}
-          isAuthenticated={state.logged}
-        />
+        <MovieContext.Provider value={{ movies, setMovies }}>
+          <PrivateRoute
+            path="/buscarPelicula"
+            exact
+            component={BuscadorPelicula}
+            isAuthenticated={state.logged}
+          />
+        </MovieContext.Provider>
       </Switch>
     </>
   );
