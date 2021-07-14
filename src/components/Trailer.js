@@ -25,20 +25,19 @@ export const Trailer = ({ movie }) => {
         </Modal.Header>
         <Modal.Body className="embed-responsive embed-responsive-16by9">
           <iframe
-            width="560"
-            height="315"
+            width="460"
+            height="215"
             src={movie.trailer}
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cerrar
           </Button>
-          <Button variant="primary">Understood</Button>
         </Modal.Footer>
       </Modal>
     </>
