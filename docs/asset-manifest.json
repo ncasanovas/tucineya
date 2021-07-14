@@ -1,15 +1,17 @@
 {
-  "main.css": "/tucineya/static/css/main.6435d19e.chunk.css",
-  "main.js": "/tucineya/static/js/main.87149dce.chunk.js",
-  "main.js.map": "/tucineya/static/js/main.87149dce.chunk.js.map",
-  "runtime~main.js": "/tucineya/static/js/runtime~main.2f24abf8.js",
-  "runtime~main.js.map": "/tucineya/static/js/runtime~main.2f24abf8.js.map",
-  "static/js/2.c5c655ef.chunk.js": "/tucineya/static/js/2.c5c655ef.chunk.js",
-  "static/js/2.c5c655ef.chunk.js.map": "/tucineya/static/js/2.c5c655ef.chunk.js.map",
-  "static/js/3.c585c3fa.chunk.js": "/tucineya/static/js/3.c585c3fa.chunk.js",
-  "static/js/3.c585c3fa.chunk.js.map": "/tucineya/static/js/3.c585c3fa.chunk.js.map",
+  "main.css": "/tucineya/static/css/main.3aeebe01.chunk.css",
+  "main.js": "/tucineya/static/js/main.2526cb1f.chunk.js",
+  "main.js.map": "/tucineya/static/js/main.2526cb1f.chunk.js.map",
+  "runtime~main.js": "/tucineya/static/js/runtime~main.759e1cd9.js",
+  "runtime~main.js.map": "/tucineya/static/js/runtime~main.759e1cd9.js.map",
+  "static/css/2.9a2d78d6.chunk.css": "/tucineya/static/css/2.9a2d78d6.chunk.css",
+  "static/js/2.70fddb2e.chunk.js": "/tucineya/static/js/2.70fddb2e.chunk.js",
+  "static/js/2.70fddb2e.chunk.js.map": "/tucineya/static/js/2.70fddb2e.chunk.js.map",
+  "static/js/3.82bcce39.chunk.js": "/tucineya/static/js/3.82bcce39.chunk.js",
+  "static/js/3.82bcce39.chunk.js.map": "/tucineya/static/js/3.82bcce39.chunk.js.map",
   "index.html": "/tucineya/index.html",
-  "precache-manifest.fb9e7df3d4b4c90f4c582c77e287fabb.js": "/tucineya/precache-manifest.fb9e7df3d4b4c90f4c582c77e287fabb.js",
+  "precache-manifest.ea0c83ad8e470d89f73b6d9504599a55.js": "/tucineya/precache-manifest.ea0c83ad8e470d89f73b6d9504599a55.js",
   "service-worker.js": "/tucineya/service-worker.js",
-  "static/css/main.6435d19e.chunk.css.map": "/tucineya/static/css/main.6435d19e.chunk.css.map"
+  "static/css/2.9a2d78d6.chunk.css.map": "/tucineya/static/css/2.9a2d78d6.chunk.css.map",
+  "static/css/main.3aeebe01.chunk.css.map": "/tucineya/static/css/main.3aeebe01.chunk.css.map"
 }
