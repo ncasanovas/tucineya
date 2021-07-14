@@ -30,7 +30,9 @@ export const ElegirCine = () => {
   const verPeliculas = async (barrio) => {
     await axios
       //.get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`)
-      .get(`https://tucineya.herokuapp.com/api/cines/${localidad.idLocalidad}`)
+      .get(
+        `https://tucineya.herokuapp.com/api/cines/peliculas/${barrio.idCine}`
+      )
       .then((res) => {
         setMovies(res.data[0]);
       });
