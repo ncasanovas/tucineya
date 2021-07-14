@@ -17,8 +17,8 @@ export const ElegirCineAdmin = ({ setIdCine }) => {
 
   const onClick = async (localidad) => {
     await axios
-      .get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)
-      //.get(`https://tucineya.herokuapp.com/api/cines/${localidad.idLocalidad}`)
+      //.get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)
+      .get(`https://tucineya.herokuapp.com/api/cines/${localidad.idLocalidad}`)
       .then((res) => {
         setBarrio(res.data[0]);
       });

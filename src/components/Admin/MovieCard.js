@@ -2,17 +2,10 @@ import React from "react";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, setPeli, setMovieResult }) => {
   const onClickAddMovie = async () => {
-    await axios
-      //.post("http://localhost:4000/api/movies/", movie)
-      .post("https://tucineya.herokuapp.com/api/movies/", movie)
-      .then((data) => {
-        alert(data.data.message);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    setPeli(movie);
+    setMovieResult();
   };
 
   return (
