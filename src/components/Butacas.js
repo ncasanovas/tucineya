@@ -19,7 +19,8 @@ export const Butacas = () => {
   useEffect(async () => {
     if (idSala !== null) {
       await axios
-        .get(`http://localhost:4000/api/butacas/${idSala}`)
+        //.get(`http://localhost:4000/api/butacas/${idSala}`)
+        .get(`https://tucineya.herokuapp.com/api/butacas/${idSala}`)
         .then((res) => {
           if (res.data !== null) {
             if (
@@ -54,7 +55,8 @@ export const Butacas = () => {
   const confirmarSeleccion = async () => {
     if (butacaElegida.length !== 0) {
       await axios
-        .post("http://localhost:4000/api/butacas", {
+        .post("https://tucineya.herokuapp.com/api/butacas", {
+          //.post("http://localhost:4000/api/butacas", {
           butacas: butacaElegida,
           idSala: idSala,
         })
