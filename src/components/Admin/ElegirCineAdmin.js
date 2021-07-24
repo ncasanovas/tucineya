@@ -1,15 +1,19 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import axios from "axios";
-import { MovieContext } from "./MovieContext";
 
-export const ElegirCine = ({ localidades }) => {
+export const ElegirCineAdmin = ({ setIdCine }) => {
+  const [localidades, setLocalidades] = useState();
   const [barrio, setBarrio] = useState([]);
-  const [over, setOver] = useState();
 
-  const { setMovies, setIdCine } = useContext(MovieContext);
-
-  useEffect(async () => {}, []);
+  useEffect(async () => {
+    await axios
+      //.get("http://localhost:4000/api/cines/")
+      .get("https://tucineya.herokuapp.com/api/cines/")
+      .then((res) => {
+        setLocalidades(res.data[0]);
+      });
+  }, []);
 
   const onClick = async (localidad) => {
     await axios
@@ -20,19 +24,8 @@ export const ElegirCine = ({ localidades }) => {
       });
   };
 
-  const verPeliculas = async (barrio) => {
-    if (barrio !== null) {
-      await axios
-        .get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`)
-        /* .get(
-        `https://tucineya.herokuapp.com/api/cines/peliculas/${barrio.idCine}`
-        ) */
-        .then((res) => {
-          console.log(res.data);
-          setMovies(res.data[0]);
-          setIdCine(barrio.idCine);
-        });
-    }
+  const barrios = (barrio) => {
+    setIdCine(barrio.idCine);
   };
 
   return (
@@ -58,22 +51,15 @@ export const ElegirCine = ({ localidades }) => {
             ? null
             : barrio.map((barrio, i) => {
                 return (
-                  <div key={i} className="d-flex justify-content-center">
+                  <div key={i}>
                     <li
-                      className={
-                        over === i
-                          ? "list-group-item active"
-                          : "list-group-item"
-                      }
-                      onClick={() => verPeliculas(barrio)}
+                      className="list-group-item"
+                      onClick={() => barrios(barrio)}
                       style={{ cursor: "pointer" }}
-                      value={i}
-                      onMouseOver={(e) => setOver(e.target.value)}
-                      onMouseOut={(e) => setOver()}
                     >
                       {barrio.Barrio}
                       {" - "}
-                      {barrio.nombre} {" , "} {barrio.ubicacion}
+                      {barrio.nombre}
                     </li>
                   </div>
                 );

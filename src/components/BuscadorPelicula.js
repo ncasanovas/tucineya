@@ -1,31 +1,36 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import { AuthContext } from "../auth/AuthContext";
+import { MovieContext } from "./MovieContext";
+
 import { types } from "../types/types";
-import { Trailer } from "./Trailer";
+import { ResultadoPeliculas } from "./ResultadoPeliculas";
 import { ElegirCine } from "./ElegirCine";
 
 export const BuscadorPelicula = () => {
   const [inputValue, setInputValue] = useState();
-  const [result, setResult] = useState();
+  const [user, setUser] = useState();
   const [localidades, setLocalidades] = useState();
   const { dispatch } = useContext(AuthContext);
+  const { movies, setMovies } = useContext(MovieContext);
   const history = useHistory();
 
+  const onChangeinput = (e) => {
+    setInputValue(e.target.value);
+  };
+
   useEffect(async () => {
+    let user = localStorage.getItem("usuario");
+    setUser(user);
     await axios
       //.get("http://localhost:4000/api/cines/")
       .get("https://tucineya.herokuapp.com/api/cines/")
       .then((res) => {
         setLocalidades(res.data[0]);
       });
-  }, []);
-
-  const onChangeinput = (e) => {
-    setInputValue(e.target.value);
-  };
+  }, [movies]);
 
   const onClickSearchMovie = async (e) => {
     e.target.reset();
@@ -34,7 +39,7 @@ export const BuscadorPelicula = () => {
       //.get(`http://localhost:4000/api/movies/${inputValue}`)
       .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
-        setResult(res.data.data[0]);
+        setMovies(res.data.data[0]);
       })
       .catch((e) => {
         console.log(e);
@@ -52,12 +57,16 @@ export const BuscadorPelicula = () => {
   return (
     <div className="row mt-4">
       <div className="d-flex justify-content-end">
-        <button className="nav-item nav-link btn white-text" onClick={handleLogout}>
+        <h4 style={{ color: "white" }}>Bienvenido {user}!</h4>
+        <button
+          className="nav-item nav-link btn white-text"
+          onClick={() => handleLogout}
+        >
           Cerrar Sesión
         </button>
       </div>
       <div className="col mb-3">
-        <form className="mb-4" onSubmit={onClickSearchMovie}>
+        <form className="mb-4" onSubmit={() => onClickSearchMovie()}>
           <input
             type="text"
             placeholder="Busque por titulo"
@@ -69,22 +78,7 @@ export const BuscadorPelicula = () => {
           <ElegirCine localidades={localidades} />
         </div>
       </div>
-      <div className="col d-flex">
-        {result
-          ? result.map((res, i) => {
-              return (
-                <div key={i}>
-                  <img
-                    src={res.posterPelicula}
-                    alt={res.idNombrePelicula}
-                    className="d-block w-75"
-                  />
-                  <Trailer movie={res} />
-                </div>
-              );
-            })
-          : null}
-      </div>
+      <div className="col">{movies ? <ResultadoPeliculas /> : null}</div>
     </div>
   );
 };

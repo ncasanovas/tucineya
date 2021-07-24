@@ -45,6 +45,7 @@ export const Form = () => {
           });
           history.replace("./admin");
         } else if (res.data.encontrado) {
+          localStorage.setItem("usuario", res.data.username);
           dispatch({
             type: types.login,
             payload: {
@@ -70,7 +71,9 @@ export const Form = () => {
         <div className="row justify-content-center">
           <form onSubmit={onSubmit} className="py-3 row justify-content-center">
             <div className="form-group row col-lg-6">
-              <label htmlFor="fname" className="white-text">Email:</label>
+              <label htmlFor="fname" className="white-text">
+                Email:
+              </label>
               <input
                 type="email"
                 id="fname"
@@ -80,7 +83,9 @@ export const Form = () => {
                 onChange={onChange}
                 required
               />
-              <label htmlFor="lname" className="white-text">Contraseña:</label>
+              <label htmlFor="lname" className="white-text">
+                Contraseña:
+              </label>
               <input
                 type="password"
                 id="lname"
