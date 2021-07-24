@@ -13,7 +13,8 @@ export const ResultadoPeliculas = () => {
   const peliculaSeleccionada = async (movie) => {
     setMovies([movie]);
     await axios
-      .post("http://localhost:4000/api/cines/sala", {
+      //.post("http://localhost:4000/api/cines/sala", {
+      .post("https://tucineya.herokuapp.com/api/cines/sala", {
         idCine: idCine,
         idNombrePelicula: movie.idNombrePelicula,
       })
