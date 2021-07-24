@@ -3,20 +3,13 @@ import { Dropdown } from "react-bootstrap";
 import axios from "axios";
 import { MovieContext } from "./MovieContext";
 
-export const ElegirCine = () => {
-  const [localidades, setLocalidades] = useState();
+export const ElegirCine = ({ localidades }) => {
   const [barrio, setBarrio] = useState([]);
+  const [over, setOver] = useState();
 
-  const { setMovies } = useContext(MovieContext);
+  const { setMovies, setIdCine } = useContext(MovieContext);
 
-  useEffect(async () => {
-    await axios
-      //.get("http://localhost:4000/api/cines/")
-      .get("https://tucineya.herokuapp.com/api/cines/")
-      .then((res) => {
-        setLocalidades(res.data[0]);
-      });
-  }, []);
+  useEffect(async () => {}, []);
 
   const onClick = async (localidad) => {
     await axios
@@ -28,14 +21,18 @@ export const ElegirCine = () => {
   };
 
   const verPeliculas = async (barrio) => {
-    await axios
-      //.get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`)
-      .get(
+    if (barrio !== null) {
+      await axios
+        .get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`)
+        /* .get(
         `https://tucineya.herokuapp.com/api/cines/peliculas/${barrio.idCine}`
-      )
-      .then((res) => {
-        setMovies(res.data[0]);
-      });
+        ) */
+        .then((res) => {
+          console.log(res.data);
+          setMovies(res.data[0]);
+          setIdCine(barrio.idCine);
+        });
+    }
   };
 
   return (
@@ -61,11 +58,18 @@ export const ElegirCine = () => {
             ? null
             : barrio.map((barrio, i) => {
                 return (
-                  <div key={i}>
+                  <div key={i} className="d-flex justify-content-center">
                     <li
-                      className="list-group-item"
+                      className={
+                        over === i
+                          ? "list-group-item active"
+                          : "list-group-item"
+                      }
                       onClick={() => verPeliculas(barrio)}
                       style={{ cursor: "pointer" }}
+                      value={i}
+                      onMouseOver={(e) => setOver(e.target.value)}
+                      onMouseOut={(e) => setOver()}
                     >
                       {barrio.Barrio}
                       {" - "}

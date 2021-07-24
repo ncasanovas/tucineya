@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
 export const MovieCard = ({ movie, setPeli, setMovieResult }) => {

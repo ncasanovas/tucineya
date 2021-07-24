@@ -8,7 +8,6 @@ import {
 import { Home } from "./components/Home";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Butacas } from "./components/Butacas";
 
 import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
@@ -39,7 +38,6 @@ export const App = () => {
           <Switch>
             <AuthContext.Provider value={{ state, dispatch }}>
               <Route path="/" exact component={Home} />
-              <Route path="/butacas" exact component={Butacas} />
               <Logged />
             </AuthContext.Provider>
           </Switch>

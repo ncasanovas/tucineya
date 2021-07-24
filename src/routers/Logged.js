@@ -9,10 +9,13 @@ import { Registro } from "../components/Registro";
 import { Admin } from "../components/Admin/Admin";
 import { BuscadorPelicula } from "../components/BuscadorPelicula";
 import { MovieContext } from "../components/MovieContext";
+import { Butacas } from "../components/Butacas";
 
 export const Logged = () => {
   const { state } = useContext(AuthContext);
   const [movies, setMovies] = useState([]);
+  const [idCine, setIdCine] = useState();
+  const [idSala, setIdSala] = useState();
 
   return (
     <>
@@ -30,11 +33,19 @@ export const Logged = () => {
           isAuthenticated={state.logged}
           admin={state.admin}
         />
-        <MovieContext.Provider value={{ movies, setMovies }}>
+        <MovieContext.Provider
+          value={{ movies, setMovies, idSala, setIdSala, idCine, setIdCine }}
+        >
           <PrivateRoute
             path="/buscarPelicula"
             exact
             component={BuscadorPelicula}
+            isAuthenticated={state.logged}
+          />
+          <PrivateRoute
+            path="/elegirButaca"
+            exact
+            component={Butacas}
             isAuthenticated={state.logged}
           />
         </MovieContext.Provider>

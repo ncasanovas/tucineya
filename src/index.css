@@ -251,6 +251,7 @@ button#btn-abrir-popup.btn {
 .container {
   perspective: 1000px;
   margin-bottom: 3px;
+  justify-content: center;
 }
 
 .seat {
@@ -312,6 +313,7 @@ button#btn-abrir-popup.btn {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .screen {
@@ -325,6 +327,7 @@ button#btn-abrir-popup.btn {
 
 p.text {
   margin: 5px 0;
+  color: white;
 }
 
 p.text span {
