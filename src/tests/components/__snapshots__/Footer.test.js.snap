@@ -7,7 +7,9 @@ exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
   <div
     className="col-3"
   >
-    <h3>
+    <h3
+      className="title-footer"
+    >
       TU CINE YA
     </h3>
   </div>
@@ -15,7 +17,7 @@ exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
     className="col-3"
   >
     <img
-      alt=""
+      alt="Logo Instagram"
       className="icon"
       src="instagram.png"
     />
@@ -24,7 +26,7 @@ exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
     className="col-3"
   >
     <img
-      alt=""
+      alt="Logo Facebook"
       className="icon"
       src="facebook.png"
     />
@@ -33,7 +35,7 @@ exports[`Pruebas en <Footer /> debe de mostrarse correctamente 1`] = `
     className="col-3"
   >
     <img
-      alt=""
+      alt="Logo Twitter"
       className="icon"
       src="twitter.png"
     />

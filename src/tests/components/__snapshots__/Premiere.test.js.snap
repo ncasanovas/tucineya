@@ -8,13 +8,7 @@ exports[`Pruebas en <Premiere /> debe de mostrar <Premiere /> correctamente 1`] 
   <h1>
     Próximos Estrenos
   </h1>
-  <div>
-    <h4
-      className="mt-5"
-    >
-      No se encontraron próximos estrenos
-    </h4>
-  </div>
+  <div />
 </div>
 `;
 
