@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { mount } from "enzyme";
 
 import Admin from "../../../components/Admin/Admin";
-import { MoviesContext } from "../../../components/MoviesContext";
+import { MovieContext } from "../../../components/MovieContext";
 
 describe("Pruebas en componente <Admin/>", () => {
   const movieTest = {
@@ -14,9 +14,9 @@ describe("Pruebas en componente <Admin/>", () => {
 
   const wrapper = mount(
     //mount sirve como reemplazo al shallow para renderizar lo que está dentro del Context.Provider
-    <MoviesContext.Provider value={{ movieTest }}>
+    <MovieContext.Provider value={{ movieTest }}>
       <Admin />
-    </MoviesContext.Provider>
+    </MovieContext.Provider>
   );
 
   test("debe mostrar el componente renderizado correctamente", () => {

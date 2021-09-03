@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { AdminMovies } from "../../../components/Admin/AdminMovies";
 import { Admin } from "../../../components/Admin/Admin";
 import { mount, shallow } from "enzyme";
-import { MoviesContext } from "../../../components/MoviesContext";
+import { MovieContext } from "../../../components/MovieContext";
 import axios from "axios";
 
 describe("Pruebas en componente <AdminMovies />", () => {
@@ -13,9 +13,9 @@ describe("Pruebas en componente <AdminMovies />", () => {
     sinopsis: "Pelicula de prueba",
   };
   let wrapper = mount(
-    <MoviesContext.Provider value={{ movieTest }}>
+    <MovieContext.Provider value={{ movieTest }}>
       <AdminMovies />
-    </MoviesContext.Provider>
+    </MovieContext.Provider>
   );
 
   test("Debe mostrar correctamente el componente", () => {

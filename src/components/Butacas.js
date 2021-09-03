@@ -14,7 +14,7 @@ export const Butacas = () => {
   const [confirmar, setConfirmar] = useState(false);
   const { dispatch } = useContext(AuthContext);
   const history = useHistory();
-  const { movies, idSala, setMovies } = useContext(MovieContext);
+  const { movies, idSala } = useContext(MovieContext);
 
   useEffect(async () => {
     if (idSala !== null) {

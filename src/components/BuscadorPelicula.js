@@ -48,6 +48,7 @@ export const BuscadorPelicula = () => {
   };
 
   const handleLogout = () => {
+    console.log("Click");
     dispatch({
       type: types.logout,
     });
@@ -74,7 +75,7 @@ export const BuscadorPelicula = () => {
           />
           <button className="btn-primary">Buscar</button>
         </form>
-        <div>
+        <div id="IdDropdown">
           <ElegirCine localidades={localidades} />
         </div>
       </div>

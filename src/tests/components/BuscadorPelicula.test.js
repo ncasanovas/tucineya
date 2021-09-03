@@ -7,7 +7,7 @@ import { AuthContext } from "../../auth/AuthContext";
 import { types } from "../../types/types";
 import axios from "axios";
 
-describe("Tests en componente ResultadoPelicula.js", () => {
+describe("Tests en componente BuscadorPelicula.js", () => {
   const movieTest = {
     nombrePelicula: "MovieTest",
     posterPelicula: "http://demo.test.com",

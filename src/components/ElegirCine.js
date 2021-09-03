@@ -9,8 +9,6 @@ export const ElegirCine = ({ localidades }) => {
 
   const { setMovies, setIdCine } = useContext(MovieContext);
 
-  useEffect(async () => {}, []);
-
   const onClick = async (localidad) => {
     await axios
       //.get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)

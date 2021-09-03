@@ -63,6 +63,14 @@ exports[`Pruebas en componente <SearchMovie/> Mostrar componente correctamente 1
         onClick={[Function]}
         variant="secondary btn-secondary"
       >
+        Agregar Pelicula
+      </Button>
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[Function]}
+        variant="secondary btn-secondary"
+      >
         Volver
       </Button>
     </ModalFooter>
