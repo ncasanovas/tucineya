@@ -41,7 +41,8 @@ export const Butacas = () => {
           }
         });
       await axios
-        .post(`http://localhost:4000/api/sala/${idSala}`)
+        //.post(`http://localhost:4000/api/sala/${idSala}`)
+        .post(`https://tucineya.herokuapp.com/api/sala/${idSala}`)
         .then((res) => {
           setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
         });
