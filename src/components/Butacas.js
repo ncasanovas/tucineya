@@ -12,9 +12,11 @@ export const Butacas = () => {
   const [butacaElegida, setButacaElegida] = useState([]);
   const [butacasConfirmadas, setButacasConfirmadas] = useState([]);
   const [confirmar, setConfirmar] = useState(false);
+  const [precioSala, setPrecioSala] = useState(0);
+  const [precioTotalSala, setPrecioTotalSala] = useState(0);
   const { dispatch } = useContext(AuthContext);
   const history = useHistory();
-  const { movies, idSala, setMovies } = useContext(MovieContext);
+  const { movies, idSala } = useContext(MovieContext);
 
   useEffect(async () => {
     if (idSala !== null) {
@@ -38,18 +40,26 @@ export const Butacas = () => {
             setButacasConfirmadas(localStorage.getItem("butacas"));
           }
         });
+      await axios
+        .post(`http://localhost:4000/api/sala/${idSala}`)
+        .then((res) => {
+          setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
+        });
     }
   }, [confirmar]);
 
   const seleccionarButaca = (fila, asiento) => {
     if (butacaElegida.includes(fila + asiento)) {
-      // Si el asiento ya está seleccionado en el array
+      // includes busca si el asiento ya está en el array "butacaElegida" devuelve true
       let index = butacaElegida.indexOf(fila + asiento); // Guardo el indice en donde esté la butaca
-      butacaElegida.splice(index, 1); // Y la borro del array segun el indice que encontró, el segundo argumento es para que borre solo ese registro
+      butacaElegida.splice(index, 1); // Y la borro del array segun el indice que encontró, el segundo argumento es para que borre solo ese registro, que borre 1 solo indice apenas en cuentre coincidencias
       setButacaElegida([...butacaElegida]); // setea las butacas con el array y ya sin la que borramos
+      setPrecioTotalSala(precioTotalSala - precioSala); //Seteo el precio total restando el total y el precio de sala cuando deseleccione una butaca disponible
     } else {
       setButacaElegida([...butacaElegida, fila + asiento]); // setea las butacas seleccionadas si no está en el array de butacaElegida
+      setPrecioTotalSala(precioTotalSala + precioSala); //Seteo el precio total sumando el total y el precio de sala cuando seleccione una butaca disponible
     }
+    console.log(movies[0].idNombrePelicula);
   };
 
   const confirmarSeleccion = async () => {
@@ -63,6 +73,7 @@ export const Butacas = () => {
         .then(() => {
           setButacaElegida([]);
           setConfirmar(!confirmar);
+          setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
         });
     }
   };
@@ -95,14 +106,15 @@ export const Butacas = () => {
           Cerrar Sesión
         </button>
       </div>
-      <div className="col">
-        {movies !== [] ? null : (
+      {movies === [] ? null : (
+        <div className="col">
+          <h1 className="text-white">{movies[0].idNombrePelicula}</h1>
           <img
             src={movies[0].posterPelicula}
             alt={movies[0].idNombrePelicula}
           />
-        )}
-      </div>
+        </div>
+      )}
       <div className="col">
         <ul className="showcase">
           <li>
@@ -161,8 +173,8 @@ export const Butacas = () => {
         </div>
 
         <p className="text">
-          You have selected <span id="count">0</span> seats for the price of $
-          <span id="total">0</span>!
+          Seleccionaste <span id="count">{butacaElegida.length}</span> asientos
+          por el precio total de $<span id="total">{precioTotalSala}</span>!
         </p>
       </div>
     </div>
