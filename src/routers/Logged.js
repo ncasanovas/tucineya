@@ -16,6 +16,7 @@ export const Logged = () => {
   const [movies, setMovies] = useState([]);
   const [idCine, setIdCine] = useState();
   const [idSala, setIdSala] = useState();
+  const [butacas, setButacas] = useState();
 
   return (
     <>
@@ -34,7 +35,16 @@ export const Logged = () => {
           admin={state.admin}
         />
         <MovieContext.Provider
-          value={{ movies, setMovies, idSala, setIdSala, idCine, setIdCine }}
+          value={{
+            movies,
+            setMovies,
+            idSala,
+            setIdSala,
+            idCine,
+            setIdCine,
+            butacas,
+            setButacas,
+          }}
         >
           <PrivateRoute
             path="/buscarPelicula"
@@ -53,3 +63,4 @@ export const Logged = () => {
     </>
   );
 };
+

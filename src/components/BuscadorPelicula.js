@@ -14,7 +14,7 @@ export const BuscadorPelicula = () => {
   const [user, setUser] = useState();
   const [localidades, setLocalidades] = useState();
   const { dispatch } = useContext(AuthContext);
-  const { movies, setMovies } = useContext(MovieContext);
+  const { movies, setMovies, setIdSala, setIdCine } = useContext(MovieContext);
   const history = useHistory();
 
   const onChangeinput = (e) => {
@@ -32,12 +32,12 @@ export const BuscadorPelicula = () => {
       });
   }, [movies]);
 
-  const onClickSearchMovie = async (e) => {
-    e.target.reset();
-    e.preventDefault();
+  const onClickSearchMovie = async () => {//boton buscador
+    //e.target.reset();
+    //e.preventDefault();
     await axios
-      //.get(`http://localhost:4000/api/movies/${inputValue}`)
-      .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
+      //.post(`http://localhost:4000/api/movies/${inputValue}`)
+      .post(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
         setMovies(res.data.data[0]);
       })
@@ -78,7 +78,12 @@ export const BuscadorPelicula = () => {
           <ElegirCine localidades={localidades} />
         </div>
       </div>
-      <div className="col">{movies ? <ResultadoPeliculas /> : null}</div>
+
+      {movies ? (
+        <div className="col">
+          <ResultadoPeliculas />{" "}
+        </div>
+      ) : null}
     </div>
   );
 };
