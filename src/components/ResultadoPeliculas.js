@@ -7,22 +7,35 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export const ResultadoPeliculas = () => {
-  const { movies, setMovies, idCine, setIdSala } = useContext(MovieContext);
+  const { movies, setMovies, idCine, setIdCine, setIdSala, setButacas } =
+    useContext(MovieContext);
   const history = useHistory();
 
-  const peliculaSeleccionada = async (movie) => {
+  const peliculaSeleccionada = (movie) => {
     setMovies([movie]);
-    await axios
-      //.post("http://localhost:4000/api/cines/sala", {
-      .post("https://tucineya.herokuapp.com/api/cines/sala", {
+    setIdSala(movie.idNumeroSala);
+    setIdCine(movie.idCine);
+    setButacas(movie.butacas);
+
+    console.log(movie);
+    history.replace("/elegirButaca");
+    /* await axios
+      .post("http://localhost:4000/api/cines/sala", {
+        //.post("https://tucineya.herokuapp.com/api/cines/sala", {
         idCine: idCine,
         idNombrePelicula: movie.idNombrePelicula,
       })
       .then((res) => {
-        setIdSala(res.data.idNumeroSala);
-        history.replace("/elegirButaca");
-      });
+        //console.log(res.data);
+        //console.log(res.data.data[0][0].idNumeroSala);
+        //setIdSala(res.data.idNumeroSala);
+        //history.replace("/elegirButaca");
+      }); */
   };
+
+  /* const verDireccion = async (pelicula) => {
+    await axios.post("http://localhost:4000/api/")
+  } */
 
   return (
     <div className="row">
@@ -41,7 +54,10 @@ export const ResultadoPeliculas = () => {
                       style={{ cursor: "pointer" }}
                     />
                   </div>
-                  <Trailer movie={movie} />
+                  <div>
+                    <h2 className="text-white">{movie.idCine}</h2>
+                    <Trailer movie={movie} />
+                  </div>
                 </div>
               );
             })}

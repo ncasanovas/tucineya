@@ -9,8 +9,6 @@ export const ElegirCine = ({ localidades }) => {
 
   const { setMovies, setIdCine } = useContext(MovieContext);
 
-  useEffect(async () => {}, []);
-
   const onClick = async (localidad) => {
     await axios
       //.get(`http://localhost:4000/api/cines/${localidad.idLocalidad}`)
@@ -23,7 +21,7 @@ export const ElegirCine = ({ localidades }) => {
   const verPeliculas = async (barrio) => {
     if (barrio !== null) {
       await axios
-        //.get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`)
+        /* .get(`http://localhost:4000/api/cines/peliculas/${barrio.idCine}`) */
         .get(
           `https://tucineya.herokuapp.com/api/cines/peliculas/${barrio.idCine}`
         )

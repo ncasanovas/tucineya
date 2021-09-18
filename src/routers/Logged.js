@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { PrivateRoute } from "./PrivateRoute";
 import { AdminRoute } from "./AdminRoute";
@@ -10,22 +10,19 @@ import { Admin } from "../components/Admin/Admin";
 import { BuscadorPelicula } from "../components/BuscadorPelicula";
 import { MovieContext } from "../components/MovieContext";
 import { Butacas } from "../components/Butacas";
+import { MercadoPagoForm } from "../components/MercadoPago/MercadoPagoForm";
 
 export const Logged = () => {
   const { state } = useContext(AuthContext);
   const [movies, setMovies] = useState([]);
   const [idCine, setIdCine] = useState();
   const [idSala, setIdSala] = useState();
+  const [butacas, setButacas] = useState();
 
   return (
     <>
       <Switch>
-        <PrivateRoute
-          path="/registro"
-          exact
-          component={Registro}
-          isAuthenticated={state.logged}
-        />
+        <Route path="/registro" exact component={Registro} />
         <AdminRoute
           path="/admin"
           exact
@@ -34,7 +31,16 @@ export const Logged = () => {
           admin={state.admin}
         />
         <MovieContext.Provider
-          value={{ movies, setMovies, idSala, setIdSala, idCine, setIdCine }}
+          value={{
+            movies,
+            setMovies,
+            idSala,
+            setIdSala,
+            idCine,
+            setIdCine,
+            butacas,
+            setButacas,
+          }}
         >
           <PrivateRoute
             path="/buscarPelicula"
@@ -46,6 +52,12 @@ export const Logged = () => {
             path="/elegirButaca"
             exact
             component={Butacas}
+            isAuthenticated={state.logged}
+          />
+          <PrivateRoute
+            path="/pago"
+            exact
+            component={MercadoPagoForm}
             isAuthenticated={state.logged}
           />
         </MovieContext.Provider>

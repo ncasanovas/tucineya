@@ -29,13 +29,14 @@ export const Form = () => {
 
     await axios
       .post("https://tucineya.herokuapp.com/api/login/", user)
-      //.post("http://localhost:4000/api/login", user)
+      /* .post("http://localhost:4000/api/login", user) */
       .then((res) => {
         setUser({
           email: "",
           password: "",
         });
 
+        console.log(res.data);
         if (res.data.admin) {
           dispatch({
             type: types.admin,
@@ -46,6 +47,7 @@ export const Form = () => {
           history.replace("./admin");
         } else if (res.data.encontrado) {
           localStorage.setItem("usuario", res.data.username);
+          localStorage.setItem("email", res.data.email);
           dispatch({
             type: types.login,
             payload: {

@@ -16,14 +16,16 @@ export const Butacas = () => {
   const [precioTotalSala, setPrecioTotalSala] = useState(0);
   const { dispatch } = useContext(AuthContext);
   const history = useHistory();
-  const { movies, idSala } = useContext(MovieContext);
+  const { movies, idSala, butacas } = useContext(MovieContext);
 
   useEffect(async () => {
     if (idSala !== null) {
-      await axios
-        //.get(`http://localhost:4000/api/butacas/${idSala}`)
-        .get(`https://tucineya.herokuapp.com/api/butacas/${idSala}`)
+      setButacasConfirmadas(butacas.split(","));
+      /* await axios
+        .get(`http://localhost:4000/api/butacas/${idSala}`)
+        //.get(`https://tucineya.herokuapp.com/api/butacas/${idSala}`)
         .then((res) => {
+          console.log(res);
           if (res.data !== null) {
             if (
               res.data[0][0].butacas === "" ||
@@ -39,7 +41,7 @@ export const Butacas = () => {
           } else {
             setButacasConfirmadas(localStorage.getItem("butacas"));
           }
-        });
+        }); */
       await axios
         //.post(`http://localhost:4000/api/sala/${idSala}`)
         .post(`https://tucineya.herokuapp.com/api/sala/${idSala}`)
@@ -60,23 +62,36 @@ export const Butacas = () => {
       setButacaElegida([...butacaElegida, fila + asiento]); // setea las butacas seleccionadas si no está en el array de butacaElegida
       setPrecioTotalSala(precioTotalSala + precioSala); //Seteo el precio total sumando el total y el precio de sala cuando seleccione una butaca disponible
     }
-    console.log(movies[0].idNombrePelicula);
   };
 
   const confirmarSeleccion = async () => {
-    if (butacaElegida.length !== 0) {
-      await axios
-        .post("https://tucineya.herokuapp.com/api/butacas", {
-          //.post("http://localhost:4000/api/butacas", {
-          butacas: butacaElegida,
-          idSala: idSala,
-        })
-        .then(() => {
-          setButacaElegida([]);
-          setConfirmar(!confirmar);
-          setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
-        });
-    }
+    await axios
+      /* .post("http://localhost:4000/checkout", { */
+      .post("https://tucineya.herokuapp.com/checkout", {
+        cantButacas: butacaElegida.length,
+        precio: precioSala,
+        pelicula: movies[0],
+      })
+      .then(async (res) => {
+        //props.history.push('/Signin');
+        //history.push(`${res.data.link}`);
+        //console.log(res.data);
+        if (butacaElegida.length !== 0) {
+          await axios
+            .post("https://tucineya.herokuapp.com/api/butacas", {
+              //.post("http://localhost:4000/api/butacas", {
+              butacas: butacaElegida,
+              idSala: idSala,
+            })
+            .then(() => {
+              setButacaElegida([]);
+              setConfirmar(!confirmar);
+              setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
+              window.open(`${res.data.link}`);
+              //history.replace("/pago");
+            });
+        }
+      });
   };
 
   const handleLogout = () => {
@@ -91,11 +106,11 @@ export const Butacas = () => {
       <div className="d-flex justify-content-end">
         <HashRouter>
           <Link
-            to="/buscarPelicula"
             className="col-2 align-items-center"
             onClick={() => {
               localStorage.removeItem("butacas");
             }}
+            to="/buscarPelicula"
           >
             Atras
           </Link>
