@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export const ResultadoPeliculas = () => {
+
   const { movies, setMovies, setIdCine, setIdSala, setButacas } =
     useContext(MovieContext);
   const history = useHistory();
@@ -33,6 +34,10 @@ export const ResultadoPeliculas = () => {
       }); */
   };
 
+  /* const verDireccion = async (pelicula) => {
+    await axios.post("http://localhost:4000/api/")
+  } */
+
   return (
     <div className="row">
       {movies.length !== 0 ? (
@@ -50,7 +55,10 @@ export const ResultadoPeliculas = () => {
                       style={{ cursor: "pointer" }}
                     />
                   </div>
-                  <Trailer movie={movie} />
+                  <div>
+                    <h2 className="text-white">{movie.idCine}</h2>
+                    <Trailer movie={movie} />
+                  </div>
                 </div>
               );
             })}

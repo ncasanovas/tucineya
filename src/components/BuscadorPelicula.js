@@ -40,6 +40,7 @@ export const BuscadorPelicula = () => {
       .post(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
         setMovies(res.data.data[0]);
+        console.log(res.data.data[0][0]);
       })
       .catch((e) => {
         console.log(e);
@@ -78,10 +79,10 @@ export const BuscadorPelicula = () => {
           <ElegirCine localidades={localidades} />
         </div>
       </div>
-
       {movies ? (
         <div className="col">
-          <ResultadoPeliculas />{" "}
+          <ResultadoPeliculas />
+
         </div>
       ) : null}
     </div>

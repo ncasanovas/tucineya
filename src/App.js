@@ -42,9 +42,9 @@ export const App = () => {
             </AuthContext.Provider>
           </Switch>
         </Router>
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
       </div>
     </BrowserRouter>
   );

@@ -20,8 +20,8 @@ export const Butacas = () => {
 
   useEffect(async () => {
     if (idSala !== null) {
-      //setButacasConfirmadas(butacas.split(","));
-       await axios
+      setButacasConfirmadas(butacas.split(","));
+        await axios
         //.get(`http://localhost:4000/api/butacas/${idSala}`)
         .get(`https://tucineya.herokuapp.com/api/butacas/${idSala}`)
         .then((res) => {
@@ -66,6 +66,33 @@ export const Butacas = () => {
   };
 
   const confirmarSeleccion = async () => {
+    await axios
+      /* .post("http://localhost:4000/checkout", { */
+      .post("https://tucineya.herokuapp.com/checkout", {
+        cantButacas: butacaElegida.length,
+        precio: precioSala,
+        pelicula: movies[0],
+      })
+      .then(async (res) => {
+        //props.history.push('/Signin');
+        //history.push(`${res.data.link}`);
+        //console.log(res.data);
+        if (butacaElegida.length !== 0) {
+          await axios
+            .post("https://tucineya.herokuapp.com/api/butacas", {
+              //.post("http://localhost:4000/api/butacas", {
+              butacas: butacaElegida,
+              idSala: idSala,
+            })
+            .then(() => {
+              setButacaElegida([]);
+              setConfirmar(!confirmar);
+              setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
+              window.open(`${res.data.link}`);
+              //history.replace("/pago");
+            });
+        }
+      });
     if (butacaElegida.length !== 0) {
       await axios
         .post("https://tucineya.herokuapp.com/api/butacas", {

@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { MovieContext } from "./MovieContext";
 
 export const Map = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { movie, idCine } = useContext(MovieContext);
   return (
     <div className="mt-2">
-      <Button onClick={handleShow}>Ver mapa</Button>
-
+      <Button onClick={handleShow}>{idCine}</Button>
       <Modal
         show={show}
         onHide={handleClose}
@@ -17,7 +18,7 @@ export const Map = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Mapa</Modal.Title>
+          <Modal.Title>{idCine}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <iframe
