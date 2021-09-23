@@ -32,7 +32,7 @@ export const BuscadorPelicula = () => {
       });
   }, [movies]);
 
-  const onClickSearchMovie = async () => {
+  const onClickSearchMovie = async () => {//boton buscador
     //e.target.reset();
     //e.preventDefault();
     await axios
@@ -82,6 +82,7 @@ export const BuscadorPelicula = () => {
       {movies ? (
         <div className="col">
           <ResultadoPeliculas />
+
         </div>
       ) : null}
     </div>

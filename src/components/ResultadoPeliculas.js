@@ -7,7 +7,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export const ResultadoPeliculas = () => {
-  const { movies, setMovies, idCine, setIdCine, setIdSala, setButacas } =
+
+  const { movies, setMovies, setIdCine, setIdSala, setButacas } =
     useContext(MovieContext);
   const history = useHistory();
 
@@ -68,3 +69,4 @@ export const ResultadoPeliculas = () => {
     </div>
   );
 };
+
