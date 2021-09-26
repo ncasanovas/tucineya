@@ -1,73 +1,37 @@
 https://ncasanovas.github.io/tucineya/
 
 
-# Getting Started with Create React App
+# TuCineYa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema creado para la compra de entradas de cine.
 
-## Available Scripts
+## Tecnologias aplicadas
 
-In the project directory, you can run:
+* ReactJs
 
-### `npm start`
+* Node
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* SQL Server
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* API Movie DB
 
-### `npm test`
+* API Mercado Pago
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Bootstrap
 
-### `npm run build`
+## Directorios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Admin: Contiene la logica del administrador.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* MercadoPago: Contiene la logica para conectarse a Mercado Pago.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Helpers: Contiene la logica para conectarse a la API de Movie DB para obtener las peliculas a estrenarse.
 
-### `npm run eject`
+* Hooks: Es una nueva API de la libreria de React que contiene la logica para tener estados.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Routers: Permite la navegacion entre las vistas de varios componentes.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Tests: Contiene las pruebas del sistema.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Types: Contiene la logica para comprobar si el usuario se encuentra logueado.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
