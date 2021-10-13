@@ -25,17 +25,24 @@ exports[`Pruebas en componente <ResultadoPeliculas /> Debe de mostrar <Resultado
             }
           />
         </div>
-        Array [
-          <button
-            className="btn btn-primary"
-            disabled={false}
-            onClick={[Function]}
-            type="button"
+        <div>
+          <h2
+            className="text-white"
           >
-            Trailer
-          </button>,
-          "",
-        ]
+            23
+          </h2>
+          Array [
+            <button
+              className="btn btn-primary"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Trailer
+            </button>,
+            "",
+          ]
+        </div>
       </div>
     </div>
     <div
@@ -46,9 +53,7 @@ exports[`Pruebas en componente <ResultadoPeliculas /> Debe de mostrar <Resultado
         disabled={false}
         onClick={[Function]}
         type="button"
-      >
-        Ver mapa
-      </button>
+      />
     </div>
   </div>
 </div>
