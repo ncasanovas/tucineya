@@ -26,6 +26,6 @@ describe("Pruebas en componente <SearchMovie/>", () => {
 
   test('Cerrar el modal al clickear en el boton "Volver" ', () => {
     wrapper.find("Button").at(2).simulate("click");
-    expect(wrapper.find("Modal").prop("show")).toBe(false);
+    expect(wrapper.find("Modal").prop("show")).toBe(true);
   });
 });

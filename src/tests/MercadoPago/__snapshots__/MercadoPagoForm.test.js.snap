@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <MercadoPagoForm /> debe de mostrarse correctamente 1`] = `
+<div
+  className="container"
+>
+  <ReactCreditCards
+    acceptedCards={Array []}
+    brand=""
+    cvc=""
+    expiry=""
+    focused="cardNumber"
+    locale={
+      Object {
+        "valid": "valid thru",
+      }
+    }
+    name=""
+    number=""
+    placeholders={
+      Object {
+        "name": "YOUR NAME HERE",
+      }
+    }
+    preview={false}
+  />
+  <form
+    action="http://localhost:4000/process-payment"
+    id="form-checkout"
+    method="POST"
+  >
+    <div
+      className="form-control"
+    >
+      <input
+        id="form-checkout__cardNumber"
+        maxLength="16"
+        name="cardNumber"
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="tel"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <input
+        id="form-checkout__cardExpirationMonth"
+        name="cardExpirationMonth"
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="tel"
+      />
+      <input
+        id="form-checkout__cardExpirationYear"
+        name="cardExpirationYear"
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="tel"
+      />
+      <input
+        id="form-checkout__securityCode"
+        name="cvc"
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="tel"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <input
+        id="form-checkout__cardholderName"
+        name="cardholderName"
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="text"
+      />
+      <input
+        id="form-checkout__cardholderEmail"
+        name="cardholderEmail"
+        onFocus={[Function]}
+        type="email"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <select
+        id="form-checkout__issuer"
+        name="issuer"
+        on={true}
+      />
+      <select
+        id="form-checkout__identificationType"
+        name="identificationType"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <input
+        id="form-checkout__identificationNumber"
+        name="identificationNumber"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <select
+        id="form-checkout__installments"
+        name="installments"
+      />
+    </div>
+    <div
+      className="form-control"
+    >
+      <button
+        id="form-checkout__submit"
+        type="submit"
+      >
+        Pagar
+      </button>
+    </div>
+    <progress
+      className="progress-bar text-white"
+      value="0"
+    >
+      Cargando...
+    </progress>
+  </form>
+</div>
+`;

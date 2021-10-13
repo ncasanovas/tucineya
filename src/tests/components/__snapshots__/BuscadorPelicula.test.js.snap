@@ -65,8 +65,5 @@ exports[`Pruebas en <BuscadorPelicula /> Debe de mostrar <BuscadorPelicula /> co
       </div>
     </div>
   </div>
-  <div
-    className="col"
-  />
 </div>
 `;
