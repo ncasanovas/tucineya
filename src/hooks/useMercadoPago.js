@@ -32,7 +32,6 @@ export default function useMercadoPago() {
               paymentMethodId: payment_method_id,
               issuerId: issuer_id,
               cardholderEmail: email,
-              amount,
               token,
               installments,
               identificationNumber,

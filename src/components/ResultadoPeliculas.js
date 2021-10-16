@@ -4,10 +4,9 @@ import { Trailer } from "./Trailer";
 import { MovieContext } from "./MovieContext";
 import { Map } from "./Map";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
 export const ResultadoPeliculas = () => {
-  const { movies, setMovies, idCine, setIdCine, setIdSala, setButacas } =
+  const { movies, setMovies, setIdCine, setIdSala, setButacas } =
     useContext(MovieContext);
   const history = useHistory();
 
@@ -17,7 +16,8 @@ export const ResultadoPeliculas = () => {
     setIdCine(movie.idCine);
     setButacas(movie.butacas);
 
-    console.log(movie);
+    sessionStorage.setItem("Pelicula", JSON.stringify(movie));
+
     history.replace("/elegirButaca");
     /* await axios
       .post("http://localhost:4000/api/cines/sala", {
@@ -55,14 +55,14 @@ export const ResultadoPeliculas = () => {
                     />
                   </div>
                   <div>
-                    <h2 className="text-white">{movie.idCine}</h2>
+                    <h4 className="text-white">{movie.idNombrePelicula[0]}</h4>
                     <Trailer movie={movie} />
                   </div>
+                  <Map movie={movie} />;
                 </div>
               );
             })}
           </div>
-          <Map />
         </div>
       ) : null}
     </div>

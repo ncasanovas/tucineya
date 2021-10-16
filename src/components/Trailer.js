@@ -21,7 +21,7 @@ export const Trailer = ({ movie }) => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{movie.idNombrePelicula}</Modal.Title>
+          <Modal.Title>{movie.idNombrePelicula[0]}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="embed-responsive embed-responsive-16by9">
           <iframe

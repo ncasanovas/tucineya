@@ -11,6 +11,7 @@ import { BuscadorPelicula } from "../components/BuscadorPelicula";
 import { MovieContext } from "../components/MovieContext";
 import { Butacas } from "../components/Butacas";
 import { MercadoPagoForm } from "../components/MercadoPago/MercadoPagoForm";
+import { Comprobante } from "../components/Comprobante";
 
 export const Logged = () => {
   const { state } = useContext(AuthContext);
@@ -58,6 +59,12 @@ export const Logged = () => {
             path="/pago"
             exact
             component={MercadoPagoForm}
+            isAuthenticated={state.logged}
+          />
+          <PrivateRoute
+            path="/comprobante"
+            exact
+            component={Comprobante}
             isAuthenticated={state.logged}
           />
         </MovieContext.Provider>

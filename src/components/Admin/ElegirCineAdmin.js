@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Dropdown } from "react-bootstrap";
 import axios from "axios";
 
-export const ElegirCineAdmin = ({ setIdCine }) => {
+export const ElegirCineAdmin = ({ setIdCine, setIdLocalidad }) => {
   const [localidades, setLocalidades] = useState();
   const [barrio, setBarrio] = useState([]);
+  const [over, setOver] = useState();
 
   useEffect(async () => {
     await axios
@@ -26,6 +27,7 @@ export const ElegirCineAdmin = ({ setIdCine }) => {
 
   const barrios = (barrio) => {
     setIdCine(barrio.idCine);
+    console.log(barrio);
   };
 
   return (
@@ -56,6 +58,9 @@ export const ElegirCineAdmin = ({ setIdCine }) => {
                       className="list-group-item"
                       onClick={() => barrios(barrio)}
                       style={{ cursor: "pointer" }}
+                      value={i}
+                      onMouseOver={(e) => setOver(e.target.value)}
+                      onMouseOut={(e) => setOver()}
                     >
                       {barrio.Barrio}
                       {" - "}
