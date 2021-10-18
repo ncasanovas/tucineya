@@ -32,7 +32,13 @@ export const BuscadorPelicula = () => {
       });
   }, [movies]);
 
+<<<<<<< HEAD
   const onClickSearchMovie = async () => {
+=======
+  const onClickSearchMovie = async () => {//boton buscador
+    //e.target.reset();
+    //e.preventDefault();
+>>>>>>> 56848fc323e4fbb8d8ddab030471eebc7a5dfb0f
     await axios
       /* .get(`http://localhost:4000/api/movies/${inputValue}`) */
       .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
@@ -81,6 +87,7 @@ export const BuscadorPelicula = () => {
       {movies ? (
         <div className="col">
           <ResultadoPeliculas />
+
         </div>
       ) : null}
     </div>

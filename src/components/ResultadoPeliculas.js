@@ -6,6 +6,10 @@ import { Map } from "./Map";
 import { useHistory } from "react-router-dom";
 
 export const ResultadoPeliculas = () => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56848fc323e4fbb8d8ddab030471eebc7a5dfb0f
   const { movies, setMovies, setIdCine, setIdSala, setButacas } =
     useContext(MovieContext);
   const history = useHistory();
@@ -68,3 +72,4 @@ export const ResultadoPeliculas = () => {
     </div>
   );
 };
+
