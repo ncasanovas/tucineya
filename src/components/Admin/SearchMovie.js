@@ -14,6 +14,7 @@ export const SearchMovie = () => {
   const [peli, setPeli] = useState();
   const [idCine, setIdCine] = useState();
   const [value, onChange] = useState(new Date());
+  const [precio, setPrecio] = useState(0);
 
   const handleClose = () => {
     setShow(false);
@@ -33,6 +34,7 @@ export const SearchMovie = () => {
         idPelicula: peli.id,
         idCine: idCine,
         fecha: value,
+        precio: precio,
       }) */
       .post("https://tucineya.herokuapp.com/api/movies/", {
         titulo: peli.title,
@@ -41,6 +43,7 @@ export const SearchMovie = () => {
         idPelicula: peli.id,
         idCine: idCine,
         fecha: value,
+        precio: precio,
       })
       .then((data) => {
         alert(data.data.message);
@@ -92,6 +95,15 @@ export const SearchMovie = () => {
                   className="imgPelicula"
                   onDoubleClick={() => setPeli()}
                 />
+                <div>
+                  <label>Precio: </label>
+                  <input
+                    type="number"
+                    name="precio"
+                    id="precio"
+                    onChange={(e) => setPrecio(e.target.value)}
+                  />
+                </div>
               </div>
               <div className="col">
                 <h4>Elige la fecha y el cine donde se estrena</h4>

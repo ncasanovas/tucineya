@@ -14,7 +14,7 @@ export const BuscadorPelicula = () => {
   const [user, setUser] = useState();
   const [localidades, setLocalidades] = useState();
   const { dispatch } = useContext(AuthContext);
-  const { movies, setMovies, setIdSala, setIdCine } = useContext(MovieContext);
+  const { movies, setMovies } = useContext(MovieContext);
   const history = useHistory();
 
   const onChangeinput = (e) => {
@@ -32,15 +32,19 @@ export const BuscadorPelicula = () => {
       });
   }, [movies]);
 
+<<<<<<< HEAD
+  const onClickSearchMovie = async () => {
+=======
   const onClickSearchMovie = async () => {//boton buscador
     //e.target.reset();
     //e.preventDefault();
+>>>>>>> 56848fc323e4fbb8d8ddab030471eebc7a5dfb0f
     await axios
-      //.post(`http://localhost:4000/api/movies/${inputValue}`)
-      .post(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
+      /* .get(`http://localhost:4000/api/movies/${inputValue}`) */
+      .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
         setMovies(res.data.data[0]);
-        console.log(res.data.data[0][0]);
+        sessionStorage.setItem("Peliculas", JSON.stringify(res.data.data[0]));
       })
       .catch((e) => {
         console.log(e);
@@ -52,6 +56,7 @@ export const BuscadorPelicula = () => {
     dispatch({
       type: types.logout,
     });
+    sessionStorage.clear();
     history.replace("./");
   };
 
@@ -61,7 +66,7 @@ export const BuscadorPelicula = () => {
         <h4 style={{ color: "white" }}>Bienvenido {user}!</h4>
         <button
           className="nav-item nav-link btn white-text"
-          onClick={() => handleLogout}
+          onClick={handleLogout}
         >
           Cerrar Sesión
         </button>

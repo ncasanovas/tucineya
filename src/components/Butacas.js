@@ -16,9 +16,45 @@ export const Butacas = () => {
   const [precioTotalSala, setPrecioTotalSala] = useState(0);
   const { dispatch } = useContext(AuthContext);
   const history = useHistory();
-  const { movies, idSala, butacas } = useContext(MovieContext);
+  const { idSala, setIdSala } = useContext(MovieContext);
 
   useEffect(async () => {
+<<<<<<< HEAD
+    setPrecioSala(
+      JSON.parse(sessionStorage.getItem("Precio")) ||
+        JSON.parse(sessionStorage.getItem("Pelicula")).precioSala
+    );
+    setIdSala(JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala);
+
+    /* setButacasConfirmadas(
+      JSON.parse(sessionStorage.getItem("Pelicula")).butacas.split(",")
+    ); */
+    /* 
+    await axios
+      //.post(`http://localhost:4000/api/sala/${idSala}`)
+      .post(`https://tucineya.herokuapp.com/api/sala/${idSala}`)
+      .then((res) => {
+        setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
+        sessionStorage.setItem("Precio", res.data.precio);
+      });
+ */
+    await axios
+      /* .get(
+        `http://localhost:4000/api/butacas/${
+          JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala
+        }`
+      ) */
+      .get(
+        `https://tucineya.herokuapp.com/api/butacas/${
+          JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala
+        }`
+      )
+      .then((res) => {
+        //console.log(res.data[0][0].butacas);
+        setButacasConfirmadas(res.data[0][0].butacas.split(","));
+        //console.log(res.data[0][0].butacas.split(",").sort());
+      });
+=======
     if (idSala !== null) {
       setButacasConfirmadas(butacas.split(","));
         await axios
@@ -50,6 +86,7 @@ export const Butacas = () => {
           setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
         });
     }
+>>>>>>> 56848fc323e4fbb8d8ddab030471eebc7a5dfb0f
   }, [confirmar]);
 
   const seleccionarButaca = (fila, asiento) => {
@@ -66,30 +103,30 @@ export const Butacas = () => {
   };
 
   const confirmarSeleccion = async () => {
+    let movie = JSON.parse(sessionStorage.getItem("Pelicula"));
+    //console.log(butacaElegida);
+    sessionStorage.setItem("butacasElegidas", butacaElegida);
+    sessionStorage.setItem("precioTotal", precioTotalSala);
     await axios
       /* .post("http://localhost:4000/checkout", { */
       .post("https://tucineya.herokuapp.com/checkout", {
         cantButacas: butacaElegida.length,
         precio: precioSala,
-        pelicula: movies[0],
+        pelicula: movie,
       })
       .then(async (res) => {
-        //props.history.push('/Signin');
-        //history.push(`${res.data.link}`);
-        //console.log(res.data);
         if (butacaElegida.length !== 0) {
           await axios
             .post("https://tucineya.herokuapp.com/api/butacas", {
-              //.post("http://localhost:4000/api/butacas", {
+              /* .post("http://localhost:4000/api/butacas", { */
               butacas: butacaElegida,
               idSala: idSala,
             })
             .then(() => {
-              setButacaElegida([]);
+              window.location = `${res.data.link}`;
+              //setButacaElegida([]);
               setConfirmar(!confirmar);
-              setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
-              window.open(`${res.data.link}`);
-              //history.replace("/pago");
+              //setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
             });
         }
       });
@@ -112,6 +149,7 @@ export const Butacas = () => {
     dispatch({
       type: types.logout,
     });
+    sessionStorage.clear();
     history.replace("./");
   };
 
@@ -122,7 +160,8 @@ export const Butacas = () => {
           <Link
             className="col-2 align-items-center"
             onClick={() => {
-              localStorage.removeItem("butacas");
+              sessionStorage.removeItem("Pelicula");
+              sessionStorage.removeItem("Peliculas");
             }}
             to="/buscarPelicula"
           >
@@ -136,15 +175,19 @@ export const Butacas = () => {
           Cerrar Sesión
         </button>
       </div>
-      {movies === [] ? null : (
-        <div className="col">
-          <h1 className="text-white">{movies[0].idNombrePelicula}</h1>
-          <img
-            src={movies[0].posterPelicula}
-            alt={movies[0].idNombrePelicula}
-          />
-        </div>
-      )}
+
+      <div className="col">
+        <h1 className="text-white">
+          {JSON.parse(sessionStorage.getItem("Pelicula")).idNombrePelicula[0]}
+        </h1>
+        <img
+          src={JSON.parse(sessionStorage.getItem("Pelicula")).posterPelicula}
+          alt={
+            JSON.parse(sessionStorage.getItem("Pelicula")).idNombrePelicula[0]
+          }
+        />
+      </div>
+
       <div className="col">
         <ul className="showcase">
           <li>

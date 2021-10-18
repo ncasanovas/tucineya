@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import axios from "axios";
 import { MovieContext } from "./MovieContext";
@@ -26,7 +26,6 @@ export const ElegirCine = ({ localidades }) => {
           `https://tucineya.herokuapp.com/api/cines/peliculas/${barrio.idCine}`
         )
         .then((res) => {
-          console.log(res.data);
           setMovies(res.data[0]);
           setIdCine(barrio.idCine);
         });
