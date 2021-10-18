@@ -27,7 +27,16 @@ export const SearchMovie = () => {
 
   const agregarPelicula = async () => {
     await axios
-      .post("http://localhost:4000/api/movies/", {
+      /* .post("http://localhost:4000/api/movies/", {
+        titulo: peli.title,
+        sinopsis: peli.overview,
+        poster: peli.poster_path,
+        idPelicula: peli.id,
+        idCine: idCine,
+        fecha: value,
+        precio: precio,
+      }) */
+      .post("https://tucineya.herokuapp.com/api/movies/", {
         titulo: peli.title,
         sinopsis: peli.overview,
         poster: peli.poster_path,
@@ -36,14 +45,6 @@ export const SearchMovie = () => {
         fecha: value,
         precio: precio,
       })
-      /* .post("https://tucineya.herokuapp.com/api/movies/", {
-        titulo: peli.title,
-        sinopsis: peli.overview,
-        poster: peli.poster_path,
-        idPelicula: peli.id,
-        idCine: idCine,
-        fecha: value,
-      }) */
       .then((data) => {
         alert(data.data.message);
       })

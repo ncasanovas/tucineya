@@ -34,8 +34,8 @@ export const BuscadorPelicula = () => {
 
   const onClickSearchMovie = async () => {
     await axios
-      .get(`http://localhost:4000/api/movies/${inputValue}`)
-      //.post(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
+      /* .get(`http://localhost:4000/api/movies/${inputValue}`) */
+      .get(`https://tucineya.herokuapp.com/api/movies/${inputValue}`)
       .then((res) => {
         setMovies(res.data.data[0]);
         sessionStorage.setItem("Peliculas", JSON.stringify(res.data.data[0]));
