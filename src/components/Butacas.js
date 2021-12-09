@@ -9,85 +9,37 @@ import { MovieContext } from "./MovieContext";
 export const Butacas = () => {
   const asientosFila = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
   const filas = ["1", "2", "3", "4", "5", "6", "7"];
+
   const [butacaElegida, setButacaElegida] = useState([]);
   const [butacasConfirmadas, setButacasConfirmadas] = useState([]);
+
   const [confirmar, setConfirmar] = useState(false);
   const [precioSala, setPrecioSala] = useState(0);
   const [precioTotalSala, setPrecioTotalSala] = useState(0);
+
   const { dispatch } = useContext(AuthContext);
+
   const history = useHistory();
+
   const { idSala, setIdSala } = useContext(MovieContext);
 
   useEffect(async () => {
-<<<<<<< HEAD
     setPrecioSala(
       JSON.parse(sessionStorage.getItem("Precio")) ||
         JSON.parse(sessionStorage.getItem("Pelicula")).precioSala
     );
     setIdSala(JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala);
 
-    /* setButacasConfirmadas(
-      JSON.parse(sessionStorage.getItem("Pelicula")).butacas.split(",")
-    ); */
-    /* 
     await axios
-      //.post(`http://localhost:4000/api/sala/${idSala}`)
-      .post(`https://tucineya.herokuapp.com/api/sala/${idSala}`)
-      .then((res) => {
-        setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
-        sessionStorage.setItem("Precio", res.data.precio);
-      });
- */
-    await axios
-      /* .get(
-        `http://localhost:4000/api/butacas/${
-          JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala
-        }`
-      ) */
       .get(
         `https://tucineya.herokuapp.com/api/butacas/${
           JSON.parse(sessionStorage.getItem("Pelicula")).idNumeroSala
         }`
       )
       .then((res) => {
-        //console.log(res.data[0][0].butacas);
         setButacasConfirmadas(res.data[0][0].butacas.split(","));
-        //console.log(res.data[0][0].butacas.split(",").sort());
       });
-=======
-    if (idSala !== null) {
-      setButacasConfirmadas(butacas.split(","));
-        await axios
-        //.get(`http://localhost:4000/api/butacas/${idSala}`)
-        .get(`https://tucineya.herokuapp.com/api/butacas/${idSala}`)
-        .then((res) => {
-          console.log(res);
-          if (res.data !== null) {
-            if (
-              res.data[0][0].butacas === "" ||
-              res.data[0][0].butacas === null
-            ) {
-              localStorage.setItem("butacas", "");
-              setButacasConfirmadas(localStorage.getItem("butacas"));
-            } else {
-              let butacas = res.data[0][0].butacas.split(",");
-              localStorage.setItem("butacas", butacas);
-              setButacasConfirmadas(butacas);
-            }
-          } else {
-            setButacasConfirmadas(localStorage.getItem("butacas"));
-          }
-        }); 
-      await axios
-        //.post(`http://localhost:4000/api/sala/${idSala}`)
-        .post(`https://tucineya.herokuapp.com/api/sala/${idSala}`)
-        .then((res) => {
-          console.log(res.data.precio);
-          setPrecioSala(res.data.precio); //Está peticion me trae el precio de la sala
-        });
-    }
->>>>>>> 56848fc323e4fbb8d8ddab030471eebc7a5dfb0f
-  }, [confirmar]);
+  }, []);
 
   const seleccionarButaca = (fila, asiento) => {
     if (butacaElegida.includes(fila + asiento)) {
@@ -104,11 +56,9 @@ export const Butacas = () => {
 
   const confirmarSeleccion = async () => {
     let movie = JSON.parse(sessionStorage.getItem("Pelicula"));
-    //console.log(butacaElegida);
     sessionStorage.setItem("butacasElegidas", butacaElegida);
     sessionStorage.setItem("precioTotal", precioTotalSala);
     await axios
-      /* .post("http://localhost:4000/checkout", { */
       .post("https://tucineya.herokuapp.com/checkout", {
         cantButacas: butacaElegida.length,
         precio: precioSala,
@@ -118,7 +68,6 @@ export const Butacas = () => {
         if (butacaElegida.length !== 0) {
           await axios
             .post("https://tucineya.herokuapp.com/api/butacas", {
-              /* .post("http://localhost:4000/api/butacas", { */
               butacas: butacaElegida,
               idSala: idSala,
             })
@@ -130,19 +79,6 @@ export const Butacas = () => {
             });
         }
       });
-    if (butacaElegida.length !== 0) {
-      await axios
-        .post("https://tucineya.herokuapp.com/api/butacas", {
-        //.post("http://localhost:4000/api/butacas", {
-          butacas: butacaElegida,
-          idSala: idSala,
-        })
-        .then(() => {
-          setButacaElegida([]);
-          setConfirmar(!confirmar);
-          setPrecioTotalSala(0); //Seteo el precio total a 0 para que no siga sumando cuando seleccione más butacas
-        });
-    }
   };
 
   const handleLogout = () => {
@@ -253,4 +189,3 @@ export const Butacas = () => {
     </div>
   );
 };
-

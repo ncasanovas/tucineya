@@ -26,7 +26,7 @@ export const Registro = () => {
   const validar = (user) => {
     const errors = {};
 
-    if (user.nombre.length > 15) {
+    if (user.nombre.length <= 15) {
       errors.nombre = "Debe contener 15 letras o menos";
     }
 

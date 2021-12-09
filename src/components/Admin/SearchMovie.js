@@ -25,17 +25,21 @@ export const SearchMovie = () => {
   };
   const handleShow = () => setShow(true);
 
+  const onClickSearchMovie = async () => {
+    await axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=350f655333437185ccf33d95346bf8e6&language=en-US&query=${inputValue}&page=1&include_adult=false`
+      )
+      .then((res) => {
+        setMovieResult(res.data.results);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   const agregarPelicula = async () => {
     await axios
-      /* .post("http://localhost:4000/api/movies/", {
-        titulo: peli.title,
-        sinopsis: peli.overview,
-        poster: peli.poster_path,
-        idPelicula: peli.id,
-        idCine: idCine,
-        fecha: value,
-        precio: precio,
-      }) */
       .post("https://tucineya.herokuapp.com/api/movies/", {
         titulo: peli.title,
         sinopsis: peli.overview,
@@ -55,19 +59,6 @@ export const SearchMovie = () => {
 
   const onChangeinput = (e) => {
     setInputValue(e.target.value);
-  };
-
-  const onClickSearchMovie = async () => {
-    await axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=350f655333437185ccf33d95346bf8e6&language=en-US&query=${inputValue}&page=1&include_adult=false`
-      )
-      .then((res) => {
-        setMovieResult(res.data.results);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   return (
